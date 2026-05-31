@@ -1,0 +1,2434 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Oral PASS Sorbonne 2026 - Preparation Complete</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #14141e;
+  --bg-card-hover: #1c1c2a;
+  --bg-elevated: #1e1e2e;
+  --border: #252538;
+  --border-light: #35354a;
+  --text: #e8e8f0;
+  --text-secondary: #a0a0b8;
+  --text-muted: #6a6a80;
+  --accent: #7c6df0;
+  --accent-light: #9d8ff7;
+  --accent-dim: #4a3fb0;
+  --accent-bg: rgba(124, 109, 240, 0.08);
+  --success: #4ade80;
+  --success-bg: rgba(74, 222, 128, 0.08);
+  --warning: #fbbf24;
+  --warning-bg: rgba(251, 191, 36, 0.08);
+  --danger: #f87171;
+  --danger-bg: rgba(248, 113, 113, 0.08);
+  --info: #60a5fa;
+  --info-bg: rgba(96, 165, 250, 0.08);
+  --gradient-1: linear-gradient(135deg, #7c6df0, #60a5fa);
+  --gradient-2: linear-gradient(135deg, #f87171, #fbbf24);
+  --gradient-3: linear-gradient(135deg, #4ade80, #60a5fa);
+  --radius: 12px;
+  --radius-sm: 8px;
+  --radius-lg: 16px;
+  --shadow: 0 4px 24px rgba(0,0,0,0.4);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.5);
+}
+
+html { font-size: 16px; scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 3px; }
+
+.app { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem 3rem; }
+
+/* Header */
+.header {
+  padding: 3rem 0 2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 2rem;
+}
+.header__badge {
+  display: inline-block;
+  padding: 0.3rem 0.8rem;
+  background: var(--accent-bg);
+  border: 1px solid var(--accent-dim);
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+  margin-bottom: 1rem;
+}
+.header__title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-weight: 600;
+  background: var(--gradient-1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+.header__subtitle {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 300;
+}
+
+/* Streak Banner */
+.streak-banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, rgba(251,191,36,0.12), rgba(248,113,113,0.08));
+  border: 1px solid rgba(251,191,36,0.25);
+  border-radius: var(--radius);
+  margin-bottom: 1.5rem;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 rgba(251,191,36,0); }
+  50% { box-shadow: 0 0 20px rgba(251,191,36,0.15); }
+}
+.streak-fire { font-size: 1.5rem; }
+.streak-count { font-size: 1.3rem; font-weight: 700; color: var(--warning); }
+.streak-label { font-size: 0.85rem; color: var(--text-secondary); }
+.streak-best { font-size: 0.75rem; color: var(--text-muted); }
+
+/* Nav */
+.nav {
+  display: flex;
+  gap: 0.4rem;
+  overflow-x: auto;
+  padding: 0 0 1.5rem;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  padding-top: 0.5rem;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav__btn {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-size: 0.78rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+.nav__btn:hover { background: var(--bg-card-hover); color: var(--text); border-color: var(--border-light); }
+.nav__btn--active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+}
+.nav__btn--highlight {
+  background: linear-gradient(135deg, rgba(251,191,36,0.15), rgba(248,113,113,0.1));
+  border-color: var(--warning);
+  color: var(--warning);
+}
+.nav__btn--highlight.nav__btn--active {
+  background: linear-gradient(135deg, var(--warning), #f59e0b);
+  color: #000;
+}
+
+/* Stats Bar */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 0.8rem;
+  margin-bottom: 2rem;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1rem;
+  text-align: center;
+  transition: all 0.2s;
+}
+.stat-card:hover { border-color: var(--border-light); transform: translateY(-1px); }
+.stat-card__value { font-size: 1.4rem; font-weight: 700; }
+.stat-card__label { font-size: 0.72rem; color: var(--text-muted); margin-top: 0.2rem; text-transform: uppercase; letter-spacing: 0.03em; }
+
+/* Section Title */
+.section-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Cards */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s;
+}
+.card:hover { border-color: var(--border-light); }
+.card--accent { border-left: 3px solid var(--accent); }
+.card--success { border-left: 3px solid var(--success); }
+.card--warning { border-left: 3px solid var(--warning); }
+.card--danger { border-left: 3px solid var(--danger); }
+
+/* Questions */
+.question {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin-bottom: 0.8rem;
+  transition: all 0.25s;
+  cursor: pointer;
+}
+.question:hover { border-color: var(--accent-dim); background: var(--bg-card-hover); }
+/* 3-state question system */
+.question--todo { border-left: 3px solid var(--border-light); }
+.question--review { border-left: 3px solid var(--warning); background: rgba(251, 191, 36, 0.04); }
+.question--done { border-left: 3px solid var(--success); opacity: 0.7; }
+
+.status-icon {
+  width: 24px; height: 24px; border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 0.75rem; font-weight: 700; flex-shrink: 0; margin-top: 0.15rem; transition: all 0.2s;
+}
+.status-icon--todo { border: 2px solid var(--border-light); color: var(--text-muted); }
+.status-icon--review { border: 2px solid var(--warning); background: var(--warning-bg); color: var(--warning); }
+.status-icon--done { border: 2px solid var(--success); background: var(--success-bg); color: var(--success); }
+.status-icon:hover { transform: scale(1.15); }
+
+.status-badge {
+  display: inline-block; padding: 0.1rem 0.4rem; border-radius: 10px;
+  font-size: 0.6rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; margin-left: 0.4rem;
+}
+.status-badge--review { background: var(--warning-bg); color: var(--warning); border: 1px solid rgba(251, 191, 36, 0.3); }
+.status-badge--done { background: var(--success-bg); color: var(--success); border: 1px solid rgba(74, 222, 128, 0.3); }
+
+/* Countdown */
+.countdown-banner {
+  text-align: center; padding: 1rem 1.5rem; margin-bottom: 1.5rem;
+  background: linear-gradient(135deg, rgba(248,113,113,0.08), rgba(251,191,36,0.08));
+  border: 1px solid rgba(248,113,113,0.2); border-radius: var(--radius-lg);
+}
+.countdown__days { font-size: 2.5rem; font-weight: 800; background: var(--gradient-2); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.countdown__label { font-size: 0.85rem; color: var(--text-secondary); margin-top: 0.2rem; }
+.countdown__sub { font-size: 0.75rem; color: var(--text-muted); margin-top: 0.3rem; }
+
+/* Phrases toolkit */
+.phrases-grid { display: flex; flex-direction: column; gap: 0.5rem; }
+.phrase-item {
+  display: flex; align-items: center; gap: 0.8rem; padding: 0.7rem 1rem;
+  background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius-sm);
+  cursor: pointer; transition: all 0.2s;
+}
+.phrase-item:hover { border-color: var(--accent-dim); background: var(--bg-card-hover); }
+.phrase-item--copied { border-color: var(--success); background: var(--success-bg); }
+.phrase-item__text { flex: 1; font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+.phrase-item__copy { flex-shrink: 0; font-size: 0.7rem; color: var(--text-muted); padding: 0.2rem 0.5rem; border: 1px solid var(--border); border-radius: 4px; }
+.phrase-cat-tabs { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1rem; }
+.phrase-cat-tab {
+  padding: 0.35rem 0.8rem; border-radius: 20px; border: 1px solid var(--border);
+  background: transparent; color: var(--text-muted); font-size: 0.75rem; cursor: pointer; transition: all 0.2s;
+}
+.phrase-cat-tab--active { background: var(--accent-bg); border-color: var(--accent-dim); color: var(--accent-light); }
+
+/* Export/Import */
+.export-section { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: 1rem; }
+.export-btn {
+  padding: 0.6rem 1.2rem; border-radius: var(--radius-sm); border: 1px solid var(--border);
+  background: var(--bg-elevated); color: var(--text); font-size: 0.82rem; cursor: pointer; transition: all 0.2s; font-weight: 600;
+}
+.export-btn:hover { border-color: var(--accent); color: var(--accent-light); }
+.export-btn--primary { background: var(--accent); border-color: var(--accent); color: white; }
+.export-btn--primary:hover { background: var(--accent-light); }
+
+/* Motivational message */
+.motiv-banner {
+  text-align: center; padding: 1rem 1.5rem; margin-bottom: 1rem;
+  background: var(--accent-bg); border: 1px solid var(--accent-dim); border-radius: var(--radius);
+  font-size: 0.88rem; color: var(--text-secondary); font-style: italic; line-height: 1.5;
+}
+.question__text { font-size: 0.95rem; line-height: 1.5; margin-bottom: 0.5rem; }
+.question__meta { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+.question__tag {
+  padding: 0.15rem 0.5rem;
+  background: var(--accent-bg);
+  border-radius: 10px;
+  font-size: 0.68rem;
+  color: var(--accent-light);
+}
+.question__diff {
+  padding: 0.15rem 0.5rem;
+  border-radius: 10px;
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+.question__diff--1 { background: var(--success-bg); color: var(--success); }
+.question__diff--2 { background: var(--warning-bg); color: var(--warning); }
+.question__diff--3 { background: var(--danger-bg); color: var(--danger); }
+
+/* Search & Filters */
+.search-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.search-input {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.6rem 1rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.search-input:focus { border-color: var(--accent); }
+.filter-btn {
+  padding: 0.4rem 0.8rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn--active { background: var(--accent-bg); border-color: var(--accent-dim); color: var(--accent-light); }
+
+/* Progress Bar */
+.progress { height: 6px; background: var(--bg-elevated); border-radius: 3px; overflow: hidden; margin-bottom: 1rem; }
+.progress__fill { height: 100%; background: var(--gradient-3); border-radius: 3px; transition: width 0.5s ease; }
+
+/* Practice Mode */
+.practice {
+  background: var(--bg-card);
+  border: 2px solid var(--accent-dim);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  text-align: center;
+}
+.practice__timer {
+  font-size: 3rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  margin: 1rem 0;
+}
+.practice__timer--warn { color: var(--warning); }
+.practice__timer--danger { color: var(--danger); animation: blink 1s infinite; }
+@keyframes blink { 50% { opacity: 0.5; } }
+.practice__question {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--bg-elevated);
+  border-radius: var(--radius);
+}
+
+/* Buttons */
+.btn {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn--primary { background: var(--accent); color: white; }
+.btn--primary:hover { background: var(--accent-light); transform: translateY(-1px); }
+.btn--success { background: var(--success); color: #000; }
+.btn--success:hover { opacity: 0.9; }
+.btn--danger { background: var(--danger); color: white; }
+.btn--danger:hover { opacity: 0.9; }
+.btn--ghost { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
+.btn--ghost:hover { border-color: var(--accent); color: var(--accent-light); }
+.btn--small { padding: 0.35rem 0.8rem; font-size: 0.75rem; }
+.btn-group { display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-top: 1rem; }
+
+/* Method Cards */
+.method-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.method-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+.method-card:hover { border-color: var(--border-light); transform: translateY(-2px); }
+.method-card__title { font-size: 1rem; font-weight: 700; margin-bottom: 0.8rem; display: flex; align-items: center; gap: 0.5rem; }
+.method-card__list { list-style: none; }
+.method-card__list li { padding: 0.3rem 0; font-size: 0.85rem; color: var(--text-secondary); display: flex; gap: 0.5rem; align-items: flex-start; }
+.method-card__list li::before { content: ""; flex-shrink: 0; width: 5px; height: 5px; border-radius: 50%; margin-top: 0.5rem; }
+
+/* Fiche Cards */
+.fiche-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1rem; }
+.fiche-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  transition: all 0.2s;
+}
+.fiche-card:hover { transform: translateY(-2px); }
+.fiche-card__title { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.8rem; }
+.fiche-card__section { margin-bottom: 0.8rem; }
+.fiche-card__label { font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+.fiche-card__items { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+.fiche-card__law { font-size: 0.8rem; padding: 0.5rem; background: var(--info-bg); border-radius: var(--radius-sm); color: var(--info); margin-bottom: 0.5rem; }
+.fiche-card__trap { font-size: 0.8rem; padding: 0.5rem; background: var(--danger-bg); border-radius: var(--radius-sm); color: var(--danger); }
+
+/* Actu Grid */
+.actu-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; }
+.actu-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  transition: all 0.2s;
+  position: relative;
+}
+.actu-card:hover { border-color: var(--border-light); }
+.actu-card--hot { border-color: var(--danger); }
+.actu-card--hot::after {
+  content: "PROBABLE";
+  position: absolute;
+  top: 0.8rem;
+  right: 0.8rem;
+  padding: 0.15rem 0.5rem;
+  background: var(--danger);
+  color: white;
+  border-radius: 10px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.actu-card__theme { font-size: 0.7rem; color: var(--accent-light); text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+.actu-card__title { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem; }
+.actu-card__desc { font-size: 0.82rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* Timeline */
+.timeline { position: relative; padding-left: 2rem; }
+.timeline::before { content: ""; position: absolute; left: 0.5rem; top: 0; bottom: 0; width: 2px; background: var(--border); }
+.timeline__item { position: relative; margin-bottom: 1.2rem; }
+.timeline__item::before {
+  content: "";
+  position: absolute;
+  left: -1.65rem;
+  top: 0.5rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: 2px solid var(--bg);
+}
+.timeline__time { font-size: 0.75rem; font-weight: 700; color: var(--accent-light); margin-bottom: 0.2rem; }
+.timeline__text { font-size: 0.85rem; color: var(--text-secondary); }
+
+/* Exemple Reponse */
+.exemple {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+}
+.exemple__question { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.3rem; }
+.exemple__type { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 10px; font-size: 0.68rem; font-weight: 600; background: var(--accent-bg); color: var(--accent-light); margin-bottom: 1rem; }
+.exemple__section { margin-bottom: 0.8rem; }
+.exemple__label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 0.3rem; }
+.exemple__text { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* Auto-Eval Grid */
+.eval-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 1rem; }
+.eval-cat { background: var(--bg-elevated); border-radius: var(--radius); padding: 1rem; }
+.eval-cat__title { font-size: 0.85rem; font-weight: 700; margin-bottom: 0.6rem; }
+.eval-item { display: flex; align-items: center; gap: 0.5rem; padding: 0.3rem 0; font-size: 0.8rem; color: var(--text-secondary); cursor: pointer; }
+.eval-item:hover { color: var(--text); }
+.eval-check { width: 16px; height: 16px; border: 2px solid var(--border-light); border-radius: 3px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; transition: all 0.2s; }
+.eval-check--done { background: var(--success); border-color: var(--success); }
+
+/* Journal */
+.journal-entry {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin-bottom: 0.8rem;
+  transition: all 0.2s;
+}
+.journal-entry:hover { border-color: var(--border-light); }
+.journal-entry__header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.8rem; }
+.journal-entry__date { font-weight: 600; font-size: 0.9rem; }
+.journal-entry__confidence {
+  padding: 0.2rem 0.6rem;
+  border-radius: 10px;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+.journal-entry__stats { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+.journal-entry__stat { font-size: 0.8rem; color: var(--text-secondary); }
+.journal-entry__stat strong { color: var(--text); }
+.journal-entry__notes { font-size: 0.82rem; color: var(--text-muted); font-style: italic; margin-top: 0.5rem; padding-top: 0.5rem; border-top: 1px solid var(--border); }
+.journal-entry__ratings { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.5rem; }
+.journal-entry__rating { padding: 0.2rem 0.5rem; background: var(--bg-elevated); border-radius: var(--radius-sm); font-size: 0.72rem; }
+
+/* Daily Goal */
+.daily-goal {
+  background: linear-gradient(135deg, rgba(124,109,240,0.08), rgba(96,165,250,0.05));
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.daily-goal__ring {
+  width: 60px;
+  height: 60px;
+  flex-shrink: 0;
+}
+.daily-goal__info { flex: 1; }
+.daily-goal__title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.2rem; }
+.daily-goal__sub { font-size: 0.78rem; color: var(--text-secondary); }
+
+/* Rating input */
+.rating-row { display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.6rem; }
+.rating-row__label { font-size: 0.82rem; color: var(--text-secondary); min-width: 110px; }
+.rating-stars { display: flex; gap: 0.2rem; }
+.rating-star {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid var(--border-light);
+  background: transparent;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  transition: all 0.15s;
+}
+.rating-star:hover { border-color: var(--accent); color: var(--accent); }
+.rating-star--active { background: var(--accent); border-color: var(--accent); color: white; }
+
+/* Evolution Dashboard */
+.evo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+.evo-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+}
+.evo-card__title { font-size: 0.85rem; font-weight: 600; margin-bottom: 0.8rem; color: var(--text-secondary); }
+
+/* Calendar Heatmap */
+.heatmap { display: flex; gap: 2px; flex-wrap: wrap; }
+.heatmap__day {
+  width: 14px;
+  height: 14px;
+  border-radius: 2px;
+  background: var(--bg-elevated);
+}
+.heatmap__day--1 { background: rgba(124,109,240,0.25); }
+.heatmap__day--2 { background: rgba(124,109,240,0.45); }
+.heatmap__day--3 { background: rgba(124,109,240,0.7); }
+.heatmap__day--4 { background: var(--accent); }
+
+/* SVG Charts */
+.chart-container { width: 100%; overflow: hidden; }
+.chart-container svg { width: 100%; height: auto; }
+
+/* Form */
+.form-group { margin-bottom: 1rem; }
+.form-label { font-size: 0.82rem; font-weight: 600; margin-bottom: 0.4rem; display: block; }
+.form-textarea {
+  width: 100%;
+  padding: 0.6rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.85rem;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 60px;
+  outline: none;
+}
+.form-textarea:focus { border-color: var(--accent); }
+.form-select {
+  padding: 0.5rem 0.8rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.82rem;
+  outline: none;
+  cursor: pointer;
+}
+
+/* Animations */
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.fade-in { animation: fadeIn 0.3s ease-out; }
+@keyframes slideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+.slide-up { animation: slideUp 0.4s ease-out; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .app { padding: 0 1rem 2rem; }
+  .header { padding: 2rem 0 1.5rem; }
+  .stats-bar { grid-template-columns: repeat(2, 1fr); }
+  .method-grid, .fiche-grid, .actu-grid, .evo-grid { grid-template-columns: 1fr; }
+  .practice { padding: 1.5rem; }
+  .practice__timer { font-size: 2.5rem; }
+  .eval-grid { grid-template-columns: 1fr; }
+  .daily-goal { flex-direction: column; text-align: center; }
+  .streak-banner { flex-wrap: wrap; justify-content: center; }
+}
+
+/* Confidence colors */
+.confidence--1 { background: var(--danger-bg); color: var(--danger); }
+.confidence--2 { background: var(--warning-bg); color: var(--warning); }
+.confidence--3 { background: var(--info-bg); color: var(--info); }
+.confidence--4 { background: var(--success-bg); color: var(--success); }
+.confidence--5 { background: linear-gradient(135deg, rgba(74,222,128,0.15), rgba(96,165,250,0.1)); color: var(--success); }
+
+/* Accordion response */
+.resp-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.6rem;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  color: var(--accent-light);
+  font-weight: 500;
+  transition: all 0.2s;
+  width: 100%;
+  text-align: left;
+}
+.resp-toggle:hover { border-color: var(--accent-dim); background: var(--bg-card-hover); }
+.resp-toggle--open { border-color: var(--accent-dim); border-bottom-left-radius: 0; border-bottom-right-radius: 0; border-bottom: none; }
+.resp-toggle__arrow { transition: transform 0.3s ease; display: inline-block; font-size: 0.65rem; }
+.resp-toggle--open .resp-toggle__arrow { transform: rotate(180deg); }
+.resp-toggle--edited { color: var(--success); }
+.resp-body {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  border: 0 solid var(--accent-dim);
+  border-top: none;
+  border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+  background: var(--bg-elevated);
+  transition: max-height 0.35s ease, opacity 0.25s ease, padding 0.25s ease, border-width 0s 0.35s;
+}
+.resp-body--open {
+  max-height: none;
+  opacity: 1;
+  padding: 0.8rem;
+  border-width: 1px;
+  transition: opacity 0.25s ease, padding 0.25s ease, border-width 0s;
+}
+.resp-body textarea {
+  width: 100%;
+  min-height: 120px;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.82rem;
+  line-height: 1.6;
+  padding: 0.8rem;
+  outline: none;
+  resize: vertical;
+  font-family: inherit;
+  transition: border-color 0.2s;
+  overflow: hidden;
+  field-sizing: content;
+}
+@supports not (field-sizing: content) {
+  .resp-body textarea { overflow-y: auto; }
+}
+.resp-body textarea:focus { border-color: var(--accent); }
+.resp-actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+.resp-actions__hint { font-size: 0.7rem; color: var(--text-muted); }
+.resp-actions__btn {
+  padding: 0.3rem 0.6rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.resp-actions__btn:hover { border-color: var(--danger); color: var(--danger); }
+
+/* Custom question badge & form */
+.question--custom { border-left: 3px solid var(--accent); }
+.question--custom.question--done { border-left: 3px solid var(--success); }
+.question--custom.question--review { border-left: 3px solid var(--warning); }
+.question__badge-custom {
+  display: inline-block;
+  padding: 0.15rem 0.45rem;
+  background: var(--accent-bg);
+  color: var(--accent-light);
+  font-size: 0.65rem;
+  font-weight: 700;
+  border-radius: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.question__delete {
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-left: auto;
+}
+.question__delete:hover { border-color: var(--danger); color: var(--danger); background: var(--danger-bg); }
+.add-question-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  padding: 0.8rem;
+  background: var(--bg-card);
+  border: 2px dashed var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-bottom: 1rem;
+}
+.add-question-btn:hover { border-color: var(--accent-dim); color: var(--accent-light); background: var(--bg-card-hover); }
+.add-form {
+  background: var(--bg-card);
+  border: 1px solid var(--accent-dim);
+  border-radius: var(--radius);
+  padding: 1.2rem;
+  margin-bottom: 1rem;
+  animation: fadeSlideIn 0.2s ease;
+}
+@keyframes fadeSlideIn { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+.add-form__title { font-size: 0.9rem; font-weight: 700; color: var(--accent-light); margin-bottom: 0.8rem; }
+.add-form__field { margin-bottom: 0.6rem; }
+.add-form__label { display: block; font-size: 0.72rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.25rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.add-form__input {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.85rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.add-form__input:focus { border-color: var(--accent); }
+.add-form__input--textarea { min-height: 80px; resize: vertical; font-family: inherit; }
+.add-form__row { display: flex; gap: 0.6rem; }
+.add-form__row > * { flex: 1; }
+.add-form__select {
+  width: 100%;
+  padding: 0.5rem 0.8rem;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--text);
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+}
+.add-form__actions { display: flex; gap: 0.5rem; justify-content: flex-end; margin-top: 0.8rem; }
+
+/* Empty state */
+.empty-state {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-muted);
+}
+.empty-state__icon { font-size: 3rem; margin-bottom: 1rem; }
+.empty-state__text { font-size: 0.9rem; }
+</style>
+</head>
+<body>
+<div class="app" id="root"></div>
+
+<script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script>
+const DATA = {
+  format: {
+    university: "Sorbonne Universite - PASS 2025-2026",
+    epreuves: 2,
+    poids_oral: "33% (1/3 de la note finale)",
+    scoring: "Classement final = 2/3 Note ecrit (bloc sante S1+S2) + 1/3 Note oral. Oral minimum 50% pour MMOPK.",
+    jury: "5 membres par jury dont au moins 1 exterieur",
+    dates: {
+      preparation_oraux: "2 et 3 Juin 2026",
+      amphi_garnison: "28 Mai 2026",
+    },
+    places: {
+      total_mmopk: 315,
+      attribuees_ecrit: 155,
+      attribuees_oral: 160,
+      capacites: {
+        medecine: 215, pharmacie: 57, odontologie: 15, maieutique: 13,
+        kine_ekp: 8, kine_aphp: 5, ergotherapie: 2
+      },
+      garnison_28mai: {
+        medecine: 107, pharmacie: 28, odontologie: 7, maieutique: 6,
+        kine_ekp: 4, kine_aphp: 2, ergotherapie: 1
+      }
+    },
+    historique_2024_25: {
+      convoques: 536,
+      presents_oraux: 369,
+      refus: 370,
+      absents: 3,
+      recus: { medecine: 115, pharmacie: 28, odontologie: 7, maieutique: 6, kine_aphp: 2, kine_ekp: 7 },
+      reclassement: {
+        nb_reclasses: 43,
+        nb_declasses: 43,
+        meilleur_gain: "187 places (rang ecrit 311 → rang final 124)",
+        plus_grand_gain_reclasse: "182 places (rang 246 → 64 ; rang 228 → 46)",
+        pire_perte: "225 places (rang ecrit 16 → rang final 241)",
+        premier_convoque: { rang: 124, note: 15.423 },
+        dernier_convoque: { rang: 536, note: 10.022 }
+      }
+    },
+    consignes_garnison: [
+      "60 ECTS valides obligatoires",
+      "Carte etudiante + courrier de convocation obligatoires",
+      "Convocations par groupes de 200 etudiants",
+      "Appel par rang de classement",
+      "Descendre au pupitre et annoncer son choix de filiere au micro",
+      "Attestation de choix signee sur place",
+      "Choix DEFINITIF — aucun retour en arriere possible",
+      "Aucun accompagnateur autorise dans l'amphi"
+    ],
+    epreuve1: {
+      nom: "Reflexion devant un Probleme Complexe (RPC)",
+      description: "On te presente un court scenario (une vignette) decrivant une situation qui conduit a une discussion autour d'un probleme complexe. PAS necessairement lie au domaine medical.",
+      format_detail: "10 min de preparation SEUL(E) sans le jury → puis 10 min d'entretien SANS diaporama : 5 min d'expose maximum + 5 min de questions du jury.",
+      objectifs: [
+        "Presenter en quelques mots la situation",
+        "Formuler et discuter les problemes souleves par la situation",
+        "Proposer des pistes pour faire evoluer cette situation"
+      ],
+      conseil_cle: "Le jury evalue ta capacite de reflexion, PAS tes connaissances medicales."
+    },
+    epreuve2: {
+      nom: "Analyse et Raisonnement devant un Ensemble de Donnees (ARED)",
+      description: "On te donne un DOCUMENT (texte, graphique, tableau, image) a analyser. ATTENTION : pendant la preparation, tu N'AS PAS acces au document ni a internet ! Tu dois le memoriser pendant les 10 premieres minutes, puis on te le retire.",
+      format_detail: "10 min de preparation SANS acces au document ni a internet → puis 10 min de passage devant le jury : 5 min d'expose maximum suivant les consignes, puis questions du jury.",
+      objectifs: [
+        "Observer et restituer les informations contenues dans le document",
+        "Identifier les problematiques soulevees par le document",
+        "Avoir un esprit critique",
+        "Avoir un esprit d'ouverture",
+        "Synthetiser"
+      ],
+      conseil_cle: "MEMORISE le document pendant les 10 premieres minutes ! Tu ne l'auras plus ensuite. Note les chiffres cles, les tendances, les elements marquants."
+    }
+  },
+  competences: [
+    { nom: "Communication", details: "Transmettre des idees clairement, organiser son discours, adapter son registre, maitriser le non-verbal", poids: "Elevee" },
+    { nom: "Empathie", details: "Reconnaitre les emotions des autres, se mettre a la place des personnes evoquees, pas de jugement", poids: "Elevee" },
+    { nom: "Ecoute", details: "Ecouter les questions du jury sans interrompre, montrer de l'interet, reformuler", poids: "Moyenne" },
+    { nom: "Esprit critique", details: "Analyser objectivement, identifier les biais, ne pas prendre les choses au premier degre", poids: "Elevee" },
+    { nom: "Reflexivite", details: "Se remettre en question, evaluer sa propre demarche, reconnaitre ses limites", poids: "Moyenne" },
+    { nom: "Adaptabilite", details: "Reagir aux questions inattendues, gerer l'incertitude, ajuster son discours", poids: "Moyenne" },
+    { nom: "Collaboration", details: "Evoquer le travail en equipe, les solutions collectives, l'interdisciplinarite", poids: "Faible" },
+    { nom: "Synthese", details: "Extraire l'essentiel, hierarchiser, presenter de facon concise et structuree", poids: "Elevee" }
+  ],
+  questions: {
+    rpc: [
+      { q: "Votre voisin a un chien. Depuis quelque temps, vous remarquez qu'il le laisse enferme dans la voiture par forte chaleur. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["empathie", "action", "responsabilite"] },
+      { q: "Vous etes en colocation avec 3 personnes. L'une d'elles manifeste des comportements suicidaires. Comment reagissez-vous ?", theme: "vie-quotidienne", difficulte: 3, tags: ["empathie", "urgence", "ecoute"] },
+      { q: "Votre voisin menace de mettre fin a ses jours. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 3, tags: ["empathie", "urgence", "action"] },
+      { q: "Un de vos amis proches vous confie qu'il triche regulierement aux examens. Quelle est votre reaction ?", theme: "vie-quotidienne", difficulte: 2, tags: ["ethique", "amitie", "integrite"] },
+      { q: "Vous etes temoin d'un accident de la route. Une personne est blessee. Decrivez vos actions.", theme: "vie-quotidienne", difficulte: 2, tags: ["action", "urgence", "sang-froid"] },
+      { q: "Un camarade de promotion vous demande de signer la feuille de presence a sa place. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["ethique", "integrite", "pression"] },
+      { q: "Votre colocataire traverse une periode de depression et refuse toute aide. Comment gerez-vous la situation ?", theme: "vie-quotidienne", difficulte: 3, tags: ["empathie", "communication", "limites"] },
+      { q: "Vous trouvez un portefeuille contenant 500 euros et une carte d'identite dans la rue. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 1, tags: ["ethique", "honnetete"] },
+      { q: "Un ami vous avoue qu'il conduit regulierement en etat d'ivresse. Comment reagissez-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["responsabilite", "amitie", "securite"] },
+      { q: "Vous decouvrez que votre proprietaire ne respecte pas les normes de securite de l'immeuble. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["responsabilite", "action", "droit"] },
+      { q: "Un SDF vous demande de l'aide devant une pharmacie en plein hiver. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["empathie", "solidarite", "action"] },
+      { q: "Vous assistez a une scene de harcelement dans les transports en commun. Comment reagissez-vous ?", theme: "vie-quotidienne", difficulte: 3, tags: ["courage", "action", "solidarite"] },
+      { q: "Un de vos professeurs fait une remarque que vous jugez discriminatoire envers un etudiant. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 3, tags: ["discrimination", "autorite", "justice"] },
+      { q: "Votre meilleur ami vous demande de mentir a ses parents pour le couvrir. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["amitie", "ethique", "confiance"] },
+      { q: "Vous remarquez qu'un enfant est seul et en pleurs dans un centre commercial depuis 30 minutes. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["action", "responsabilite", "protection"] },
+      { q: "Vous surprenez un collegue en train de voler dans les vestiaires. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["ethique", "confrontation", "justice"] },
+      { q: "Un voisin age vit seul et vous n'avez pas de nouvelles depuis plusieurs jours. Que faites-vous ?", theme: "vie-quotidienne", difficulte: 2, tags: ["solidarite", "vigilance", "lien-social"] },
+      { q: "Votre groupe de travail decide d'exclure un etudiant car il 'ralentit le groupe'. Votre reaction ?", theme: "vie-quotidienne", difficulte: 2, tags: ["inclusion", "ethique", "groupe"] },
+      { q: "Un patient refuse une transfusion sanguine pour des raisons religieuses alors que sa vie est en danger. Que pensez-vous de cette situation ?", theme: "ethique", difficulte: 3, tags: ["autonomie", "croyances", "vie"] },
+      { q: "Faut-il dire toute la verite a un patient atteint d'une maladie incurable ? Discutez.", theme: "ethique", difficulte: 3, tags: ["verite", "bienveillance", "autonomie"] },
+      { q: "Un medecin decouvre qu'un patient, chauffeur de bus, a une pathologie qui le rend dangereux au volant. Le patient refuse d'arreter de conduire. Que faire ?", theme: "ethique", difficulte: 3, tags: ["secret-medical", "securite", "dilemme"] },
+      { q: "Les parents d'un enfant de 5 ans refusent de le faire vacciner. Quelle est votre position ?", theme: "ethique", difficulte: 3, tags: ["vaccination", "liberte", "sante-publique"] },
+      { q: "Un adolescent de 15 ans vous demande de ne pas informer ses parents de sa consultation. Que faites-vous ?", theme: "ethique", difficulte: 3, tags: ["secret-medical", "mineur", "confiance"] },
+      { q: "Doit-on accepter l'euthanasie en France ? Presentez les arguments pour et contre.", theme: "ethique", difficulte: 3, tags: ["fin-de-vie", "legislation", "dignite"] },
+      { q: "Un patient en fin de vie demande l'arret de son traitement. Comment abordez-vous cette situation ?", theme: "ethique", difficulte: 3, tags: ["fin-de-vie", "autonomie", "accompagnement"] },
+      { q: "La GPA (Gestation Pour Autrui) devrait-elle etre autorisee en France ? Discutez.", theme: "ethique", difficulte: 3, tags: ["bioethique", "societe", "droits"] },
+      { q: "Un medecin peut-il refuser de pratiquer une IVG pour des raisons de conscience ? Debattez.", theme: "ethique", difficulte: 3, tags: ["clause-conscience", "droits", "acces-soins"] },
+      { q: "Faut-il rendre le don d'organes obligatoire ? Argumentez.", theme: "ethique", difficulte: 2, tags: ["bioethique", "solidarite", "liberte"] },
+      { q: "Un chercheur decouvre une erreur dans ses resultats deja publies. Que doit-il faire ?", theme: "ethique", difficulte: 2, tags: ["integrite", "recherche", "responsabilite"] },
+      { q: "L'acces aux soins est-il un droit ou un privilege ? Discutez.", theme: "ethique", difficulte: 2, tags: ["justice-sociale", "sante-publique", "inegalites"] },
+      { q: "Peut-on imposer un traitement a un patient atteint de troubles psychiatriques qui refuse les soins ?", theme: "ethique", difficulte: 3, tags: ["liberte", "psychiatrie", "protection"] },
+      { q: "Un medecin peut-il refuser de soigner un patient qui l'a agresse verbalement ?", theme: "ethique", difficulte: 2, tags: ["deontologie", "limites", "soins"] },
+      { q: "Faut-il autoriser la recherche sur les cellules souches embryonnaires ? Debattez.", theme: "ethique", difficulte: 3, tags: ["bioethique", "recherche", "embryon"] },
+      { q: "L'experimentation animale est-elle justifiable pour la recherche medicale ?", theme: "ethique", difficulte: 2, tags: ["recherche", "souffrance-animale", "progres"] },
+      { q: "Un patient vous demande de lui prescrire un arret de travail de complaisance. Que faites-vous ?", theme: "ethique", difficulte: 2, tags: ["deontologie", "integrite", "pression"] },
+      { q: "Un couple demande un diagnostic preimplantatoire pour choisir le sexe de leur enfant. Votre position ?", theme: "ethique", difficulte: 3, tags: ["bioethique", "selection", "limites"] },
+      { q: "Un patient vous confie qu'il a agresse quelqu'un. Etes-vous tenu au secret medical ?", theme: "ethique", difficulte: 3, tags: ["secret-medical", "loi", "dilemme"] },
+      { q: "Les reseaux sociaux ont-ils un impact sur la sante mentale des jeunes ? Analysez.", theme: "societe", difficulte: 2, tags: ["numerique", "sante-mentale", "jeunes"] },
+      { q: "Comment lutter contre les deserts medicaux en France ?", theme: "societe", difficulte: 2, tags: ["acces-soins", "territoires", "solutions"] },
+      { q: "L'intelligence artificielle va-t-elle remplacer les medecins ? Discutez.", theme: "societe", difficulte: 2, tags: ["IA", "avenir-medecine", "technologie"] },
+      { q: "Quel est le role du medecin face aux inegalites sociales de sante ?", theme: "societe", difficulte: 2, tags: ["inegalites", "role-medecin", "justice"] },
+      { q: "Les mesures de confinement etaient-elles justifiees pendant la pandemie de COVID-19 ?", theme: "societe", difficulte: 2, tags: ["liberte", "sante-publique", "proportionnalite"] },
+      { q: "La medecine preventive devrait-elle primer sur la medecine curative ?", theme: "societe", difficulte: 2, tags: ["prevention", "systeme-sante", "economie"] },
+      { q: "Faut-il limiter l'acces aux informations medicales sur Internet pour les patients ?", theme: "societe", difficulte: 2, tags: ["information", "autonomie", "desinformation"] },
+      { q: "Les addictions (tabac, alcool, drogues) sont-elles une maladie ou un choix ? Debattez.", theme: "societe", difficulte: 2, tags: ["addictions", "responsabilite", "maladie"] },
+      { q: "La telemedicine peut-elle remplacer la consultation en presentiel ?", theme: "societe", difficulte: 2, tags: ["telemedicine", "innovation", "limites"] },
+      { q: "Quelle place pour la medecine traditionnelle/alternative dans le systeme de sante ?", theme: "societe", difficulte: 2, tags: ["medecine-alternative", "evidence", "liberte"] },
+      { q: "Le systeme de sante francais est-il en crise ? Analysez les causes et proposez des solutions.", theme: "societe", difficulte: 3, tags: ["systeme-sante", "politique", "reforme"] },
+      { q: "Comment concilier secret medical et protection de la societe (maladies contagieuses) ?", theme: "societe", difficulte: 3, tags: ["secret-medical", "sante-publique", "equilibre"] },
+      { q: "L'obesite est-elle un probleme individuel ou de societe ?", theme: "societe", difficulte: 2, tags: ["obesite", "responsabilite", "environnement"] },
+      { q: "Faut-il legaliser le cannabis en France ? Quels seraient les effets sur la sante publique ?", theme: "societe", difficulte: 2, tags: ["drogues", "legislation", "sante-publique"] },
+      { q: "Le numerus apertus est-il un meilleur systeme que le numerus clausus ? Discutez.", theme: "societe", difficulte: 2, tags: ["formation", "selection", "acces"] },
+      { q: "Comment expliquer la defiance croissante envers la medecine et les medecins ?", theme: "societe", difficulte: 2, tags: ["confiance", "relation", "information"] },
+      { q: "Faut-il interdire la publicite pour la malbouffe destinee aux enfants ?", theme: "societe", difficulte: 2, tags: ["prevention", "marketing", "liberte"] },
+      { q: "Le vieillissement de la population est-il une menace ou une chance pour la societe ?", theme: "societe", difficulte: 2, tags: ["demographie", "solidarite", "adaptation"] },
+      { q: "Quel est l'impact du changement climatique sur la sante humaine ?", theme: "ecologie", difficulte: 2, tags: ["climat", "sante-environnementale", "maladies"] },
+      { q: "Faites le lien entre la pollution et la sante. Quels sont les enjeux et actions possibles ?", theme: "ecologie", difficulte: 2, tags: ["pollution", "sante-publique", "prevention"] },
+      { q: "Les perturbateurs endocriniens representent-ils un danger pour la sante publique ?", theme: "ecologie", difficulte: 2, tags: ["environnement", "toxicologie", "prevention"] },
+      { q: "Comment rendre le systeme de sante plus eco-responsable ?", theme: "ecologie", difficulte: 2, tags: ["developpement-durable", "hopital", "innovation"] },
+      { q: "Le concept One Health (une seule sante) : expliquez et discutez son importance.", theme: "ecologie", difficulte: 2, tags: ["one-health", "zoonoses", "biodiversite"] },
+      { q: "Les pandemies sont-elles liees a la destruction de l'environnement ? Argumentez.", theme: "ecologie", difficulte: 2, tags: ["pandemie", "biodiversite", "prevention"] },
+      { q: "L'eau potable est-elle un bien commun ou une marchandise ? Discutez les enjeux sanitaires.", theme: "ecologie", difficulte: 2, tags: ["eau", "inegalites", "sante-publique"] },
+      { q: "Comment expliquer un diagnostic grave a un patient de maniere comprehensible et humaine ?", theme: "communication", difficulte: 2, tags: ["annonce", "empathie", "pedagogie"] },
+      { q: "Un patient ne parle pas francais. Comment assurez-vous une consultation de qualite ?", theme: "communication", difficulte: 2, tags: ["barriere-langue", "inclusion", "adaptation"] },
+      { q: "Comment gerer un patient agressif aux urgences ?", theme: "communication", difficulte: 3, tags: ["conflit", "stress", "desescalade"] },
+      { q: "Un parent conteste votre diagnostic en s'appuyant sur Internet. Comment reagissez-vous ?", theme: "communication", difficulte: 2, tags: ["autorite", "pedagogie", "ecoute"] },
+      { q: "Comment promouvoir l'education a la sante aupres des populations defavorisees ?", theme: "communication", difficulte: 2, tags: ["prevention", "inegalites", "acces"] },
+      { q: "Comment annoncer a une famille le deces d'un proche ?", theme: "communication", difficulte: 3, tags: ["annonce", "empathie", "accompagnement"] },
+      { q: "Un patient demande un second avis medical. Comment reagissez-vous ?", theme: "communication", difficulte: 1, tags: ["humilite", "droit", "relation"] },
+      { q: "Les donnees de sante des patients doivent-elles etre partagees pour faire avancer la recherche ?", theme: "technologie", difficulte: 3, tags: ["donnees", "vie-privee", "recherche"] },
+      { q: "L'IA peut-elle poser un diagnostic aussi fiable qu'un medecin ? Enjeux ethiques ?", theme: "technologie", difficulte: 3, tags: ["IA", "diagnostic", "responsabilite"] },
+      { q: "Les tests genetiques predictifs doivent-ils etre accessibles a tous ? Discutez.", theme: "technologie", difficulte: 3, tags: ["genetique", "discrimination", "assurance"] },
+      { q: "Les robots chirurgicaux sont-ils l'avenir de la chirurgie ?", theme: "technologie", difficulte: 2, tags: ["innovation", "chirurgie", "deshumanisation"] },
+      { q: "Faut-il encadrer davantage la recherche sur les embryons humains ?", theme: "technologie", difficulte: 3, tags: ["bioethique", "recherche", "limites"] },
+      { q: "Le transhumanisme est-il compatible avec l'ethique medicale ?", theme: "technologie", difficulte: 3, tags: ["transhumanisme", "limites", "humanite"] },
+      { q: "Les applications de sante (Apple Watch, capteurs) changent-elles la relation au corps et a la maladie ?", theme: "technologie", difficulte: 2, tags: ["quantified-self", "anxiete", "prevention"] },
+      { q: "ChatGPT et les IA generatives en medecine : opportunite ou danger ? Discutez.", theme: "technologie", difficulte: 2, tags: ["IA", "desinformation", "outil"] },
+      { q: "Comment destigmatiser les maladies mentales dans notre societe ?", theme: "sante-mentale", difficulte: 2, tags: ["stigmatisation", "psychiatrie", "inclusion"] },
+      { q: "Le burn-out des soignants est-il une fatalite ? Comment y remedier ?", theme: "sante-mentale", difficulte: 2, tags: ["burn-out", "conditions-travail", "prevention"] },
+      { q: "L'hospitalisation sous contrainte est-elle justifiable ? Dans quelles conditions ?", theme: "sante-mentale", difficulte: 3, tags: ["liberte", "psychiatrie", "protection"] },
+      { q: "Quel est l'impact de la solitude sur la sante, notamment chez les personnes agees ?", theme: "sante-mentale", difficulte: 2, tags: ["isolement", "vieillissement", "lien-social"] },
+      { q: "La sante mentale des etudiants est-elle suffisamment prise en charge en France ?", theme: "sante-mentale", difficulte: 2, tags: ["etudiants", "stress", "dispositifs"] },
+      { q: "L'addiction aux ecrans chez les enfants est-elle un probleme de sante publique ?", theme: "sante-mentale", difficulte: 2, tags: ["numerique", "enfants", "dependance"] },
+      { q: "Le numerus clausus (numerus apertus) est-il un bon systeme de selection ?", theme: "droit", difficulte: 2, tags: ["formation", "selection", "egalite"] },
+      { q: "Un medecin peut-il etre tenu responsable d'une erreur medicale ? Discutez les limites.", theme: "droit", difficulte: 2, tags: ["responsabilite", "erreur", "alea"] },
+      { q: "La loi Claeys-Leonetti sur la fin de vie est-elle suffisante ?", theme: "droit", difficulte: 3, tags: ["fin-de-vie", "legislation", "evolution"] },
+      { q: "Le consentement eclaire du patient : quelles sont ses limites ?", theme: "droit", difficulte: 2, tags: ["consentement", "information", "comprehension"] },
+      { q: "La vaccination obligatoire est-elle une atteinte aux libertes individuelles ?", theme: "droit", difficulte: 2, tags: ["vaccination", "liberte", "collectif"] },
+      { q: "Le droit a l'oubli pour les anciens malades : pourquoi est-ce important ?", theme: "droit", difficulte: 2, tags: ["discrimination", "assurance", "reinsertion"] },
+    ],
+    ared: [
+      { q: "Document : image d'une manifestation de soignants devant un hopital avec des pancartes revendiquant de meilleures conditions. Analysez.", theme: "sante-publique", difficulte: 2, tags: ["hopital", "conditions-travail", "revendication"] },
+      { q: "Document : image d'un cabinet medical ferme dans un village rural avec un panneau 'A vendre'. Que vous inspire ce document ?", theme: "sante-publique", difficulte: 2, tags: ["deserts-medicaux", "territoires", "abandon"] },
+      { q: "Document : image d'une personne agee seule dans une chambre d'EHPAD, regardant par la fenetre. Analysez les enjeux.", theme: "societe", difficulte: 2, tags: ["vieillissement", "solitude", "dignite"] },
+      { q: "Document : image d'un enfant travaillant dans une usine textile dans un pays en developpement. Que vous evoque ce document ?", theme: "international", difficulte: 2, tags: ["droits-humains", "travail-enfants", "mondialisation"] },
+      { q: "Document : tableau de donnees montrant les temps d'attente aux urgences (6h en moyenne) dans un hopital public. Identifiez les problematiques.", theme: "sante-publique", difficulte: 2, tags: ["urgences", "systeme-sante", "saturation"] },
+      { q: "Document : graphique montrant l'evolution de la pollution atmospherique dans les grandes villes francaises. Analysez les consequences sanitaires.", theme: "environnement", difficulte: 2, tags: ["pollution", "sante-respiratoire", "urbanisme"] },
+      { q: "Document : image d'un medecin MSF soignant un enfant dans un camp de refugies. Que vous inspire ce document ?", theme: "international", difficulte: 2, tags: ["humanitaire", "engagement", "inegalites"] },
+      { q: "Document : infographie sur les taux de couverture vaccinale dans differentes regions du monde. Analysez les enjeux.", theme: "international", difficulte: 2, tags: ["vaccination", "sante-mondiale", "acces"] },
+      { q: "Document : image d'un SDF dormant sur un carton devant les urgences d'un hopital. Quelles problematiques ?", theme: "societe", difficulte: 2, tags: ["precarite", "acces-soins", "exclusion"] },
+      { q: "Document : graphique comparant le temps d'ecran moyen des 15-25 ans en 2019 vs 2025. Que vous evoque ce document ?", theme: "societe", difficulte: 1, tags: ["numerique", "lien-social", "dependance"] },
+      { q: "Document : image d'un robot chirurgical Da Vinci en salle d'operation accompagnee de statistiques d'utilisation. Analysez les implications.", theme: "technologie", difficulte: 2, tags: ["innovation", "avenir-medecine", "deshumanisation"] },
+      { q: "Document : tableau comparant les taux de mortalite maternelle entre l'Afrique subsaharienne et la France. Analysez.", theme: "international", difficulte: 2, tags: ["inegalites", "mortalite-maternelle", "moyens"] },
+      { q: "Document : texte d'un communique d'agriculteurs manifestant contre l'interdiction de pesticides. Discutez les enjeux.", theme: "environnement", difficulte: 2, tags: ["agriculture", "sante-publique", "economie"] },
+      { q: "Document : tableau nutritionnel comparant un plat prepare ultra-transforme et un plat cuisine maison. Analysez les enjeux de sante publique.", theme: "nutrition", difficulte: 2, tags: ["alimentation", "prevention", "marketing"] },
+      { q: "Document : image de militants ecologistes bloquant une autoroute, accompagnee d'un article de presse. Analysez la situation.", theme: "societe", difficulte: 2, tags: ["desobeissance-civile", "urgence-climatique", "liberte"] },
+      { q: "Document : graphique montrant l'evolution du port du masque en population generale depuis 2020. Que vous evoque ce document ?", theme: "sante-publique", difficulte: 1, tags: ["prevention", "anxiete", "normalite"] },
+      { q: "Document : image aerienne montrant un bidonville a cote d'un hopital moderne. Analysez le contraste.", theme: "societe", difficulte: 2, tags: ["inegalites", "acces-soins", "urbanisme"] },
+      { q: "Document : liste de medicaments en rupture de stock affichee en pharmacie. Discutez.", theme: "sante-publique", difficulte: 2, tags: ["penurie", "industrie-pharma", "souverainete"] },
+      { q: "Document : rapport sanitaire sur les conditions de vie dans un camp de migrants aux portes de l'Europe. Problematiques sanitaires ?", theme: "international", difficulte: 2, tags: ["migrants", "conditions-sanitaires", "humanite"] },
+      { q: "Document : graphique correlant le taux d'obesite infantile et le temps d'ecran quotidien. Analysez les enjeux.", theme: "nutrition", difficulte: 2, tags: ["obesite", "sedentarite", "education"] },
+      { q: "Document : image d'un hopital psychiatrique desaffecte accompagnee d'un texte sur l'evolution de la psychiatrie en France. Que vous inspire ce document ?", theme: "sante-mentale", difficulte: 2, tags: ["psychiatrie", "histoire", "evolution"] },
+      { q: "Document : deux tribunes opposees (pour et contre l'IVG) publiees dans un journal. Presentez les differents points de vue.", theme: "societe", difficulte: 3, tags: ["IVG", "droits", "croyances"] },
+      { q: "Document : image d'une personne en fauteuil roulant face a un escalier sans rampe d'acces. Analysez.", theme: "societe", difficulte: 1, tags: ["handicap", "accessibilite", "inclusion"] },
+      { q: "Document : carte montrant la deforestation en Amazonie et les foyers de maladies emergentes. Quels liens avec la sante humaine ?", theme: "environnement", difficulte: 2, tags: ["climat", "biodiversite", "maladies-emergentes"] },
+      { q: "Document : temoignage ecrit d'un etudiant en medecine sur ses conditions de stage hospitalier. Analysez.", theme: "sante-publique", difficulte: 2, tags: ["formation", "bien-etre", "systeme"] },
+      { q: "Document : capture d'ecran d'une teleconsultation entre un medecin et un patient age. Discutez.", theme: "technologie", difficulte: 2, tags: ["telemedicine", "fracture-numerique", "innovation"] },
+      { q: "Document : graphique montrant les niveaux de particules fines dans les cours d'ecole de grandes villes. Analysez.", theme: "environnement", difficulte: 2, tags: ["pollution", "enfants", "urbanisme"] },
+      { q: "Document : article de presse sur la vente de medicaments contrefaits dans les marches africains. Problematiques ?", theme: "international", difficulte: 3, tags: ["medicaments", "contrefacon", "regulation"] },
+      { q: "Document : image de deux personnes agees se tenant la main dans un EHPAD. Que vous inspire ce document ?", theme: "societe", difficulte: 1, tags: ["humanite", "lien", "vieillesse"] },
+      { q: "Document : infographie comparant la frequentation des fast-foods et des espaces verts dans un quartier. Analysez.", theme: "nutrition", difficulte: 2, tags: ["alimentation", "sedentarite", "choix"] },
+      { q: "Document : capture d'ecran de ChatGPT affichant un diagnostic medical. Analysez les enjeux.", theme: "technologie", difficulte: 3, tags: ["IA", "autodiagnostic", "danger"] },
+      { q: "Document : temoignage ecrit d'une sage-femme sur ses conditions de travail apres un accouchement difficile. Analysez.", theme: "sante-publique", difficulte: 2, tags: ["soignants", "epuisement", "reconnaissance"] },
+      { q: "Document : graphique montrant la stagnation de l'esperance de vie en France depuis 2019. Discutez.", theme: "sante-publique", difficulte: 2, tags: ["demographie", "systeme-sante", "inegalites"] },
+      { q: "Document : image d'un enfant recevant un vaccin avec un parent inquiet, accompagnee de statistiques sur l'hesitation vaccinale. Analysez.", theme: "sante-publique", difficulte: 2, tags: ["vaccination", "confiance", "peur"] },
+    ],
+    motivation: [
+      { q: "Pourquoi avez-vous choisi la medecine et pas une autre filiere de sante ?", theme: "projet", difficulte: 1, tags: ["motivation", "choix", "vocation"] },
+      { q: "Quel type de medecin souhaitez-vous devenir et pourquoi ?", theme: "projet", difficulte: 1, tags: ["specialite", "projection", "ideal"] },
+      { q: "Qu'est-ce qui vous a marque ou inspire dans le domaine de la sante ?", theme: "projet", difficulte: 1, tags: ["experience", "inspiration", "declencheur"] },
+      { q: "Avez-vous eu des experiences (stages, benevolat) en lien avec la sante ?", theme: "projet", difficulte: 1, tags: ["experience", "terrain", "concret"] },
+      { q: "Comment gerez-vous le stress et la pression des etudes ?", theme: "personnel", difficulte: 1, tags: ["resilience", "methodes", "equilibre"] },
+      { q: "Quelles qualites pensez-vous essentielles pour un bon medecin ?", theme: "reflexion", difficulte: 1, tags: ["qualites", "ideal", "humanisme"] },
+      { q: "Comment envisagez-vous de concilier vie professionnelle et vie personnelle en tant que medecin ?", theme: "personnel", difficulte: 2, tags: ["equilibre", "projection", "realisme"] },
+      { q: "Quel regard portez-vous sur la relation medecin-patient ?", theme: "reflexion", difficulte: 2, tags: ["relation", "humanisme", "confiance"] },
+      { q: "Connaissez-vous les defis actuels du systeme de sante francais ?", theme: "connaissances", difficulte: 2, tags: ["systeme-sante", "actualite", "enjeux"] },
+      { q: "Comment votre parcours personnel vous a-t-il prepare aux etudes de medecine ?", theme: "projet", difficulte: 1, tags: ["parcours", "preparation", "maturite"] },
+      { q: "Si vous ne reussissiez pas en medecine, quel serait votre plan B ?", theme: "personnel", difficulte: 2, tags: ["resilience", "adaptabilite", "ouverture"] },
+      { q: "Quelle decouverte medicale recente vous a particulierement interesse ?", theme: "connaissances", difficulte: 2, tags: ["actualite", "curiosite", "science"] },
+      { q: "Que pensez-vous du systeme de selection actuel (PASS/LAS) ?", theme: "connaissances", difficulte: 2, tags: ["formation", "reforme", "critique"] },
+      { q: "Avez-vous deja ete confronte a la maladie (personnellement ou dans votre entourage) ?", theme: "personnel", difficulte: 2, tags: ["experience", "empathie", "maturite"] },
+      { q: "Que signifie pour vous 'prendre soin' de quelqu'un ?", theme: "reflexion", difficulte: 1, tags: ["soin", "humanisme", "definition"] },
+      { q: "Citez un medecin celebre qui vous inspire et expliquez pourquoi.", theme: "connaissances", difficulte: 1, tags: ["culture", "inspiration", "modele"] },
+      { q: "La medecine est-elle un art ou une science ? Debattez.", theme: "reflexion", difficulte: 2, tags: ["philosophie", "humanisme", "technique"] },
+      { q: "Comment reagiriez-vous si un patient vous reprochait une erreur ?", theme: "reflexion", difficulte: 3, tags: ["humilite", "responsabilite", "communication"] },
+    ]
+  },
+  fichesThematiques: [
+    { theme: "Fin de vie / Euthanasie", color: "#f87171", pour: ["Respect de l'autonomie du patient", "Droit a mourir dans la dignite", "Souffrance insupportable et irreversible", "Modeles existants : Belgique, Pays-Bas, Oregon"], contre: ["Pente glissante : derive vers l'euthanasie de convenance", "Soins palliatifs encore insuffisamment developpes", "Role du medecin = guerir et soulager, pas donner la mort", "Pression potentielle sur les personnes vulnerables"], lois: "Loi Claeys-Leonetti (2016) : sedation profonde et continue autorisee. Projet de loi aide active a mourir en debat (2025-2026).", piege: "Ne jamais dire 'je suis pour/contre l'euthanasie' sans nuancer." },
+    { theme: "Intelligence artificielle en sante", color: "#60a5fa", pour: ["Performances superieures en imagerie (radiologie, dermato)", "Acces aux soins ameliore (zones rurales)", "Reduction des erreurs diagnostiques", "Gain de temps pour le medecin"], contre: ["Boite noire : manque d'explicabilite", "Biais algorithmiques (donnees d'entrainement biaisees)", "Responsabilite en cas d'erreur non clarifiee", "Deshumanisation de la relation de soin"], lois: "Reglement europeen sur l'IA (AI Act, 2024). La sante est classee 'haut risque'.", piege: "L'IA assiste le medecin, elle ne le remplace pas. Toujours revenir a la relation humaine." },
+    { theme: "Vaccination et confiance", color: "#4ade80", pour: ["Eradication de maladies (variole, quasi-polio)", "Protection collective (immunite de groupe)", "Rapport benefice/risque scientifiquement prouve", "11 vaccins obligatoires depuis 2018 sans hausse d'effets graves"], contre: ["Respect de la liberte individuelle", "Effets secondaires rares mais existants", "Defiance nourrie par des scandales sanitaires passes", "Paternalisme medical percu"], lois: "11 vaccins obligatoires pour les nourrissons (2018). Obligation vaccinale COVID abrogee.", piege: "Ne pas mepriser les anti-vax. Comprendre les racines de la defiance (peur, meconnaissance, scandales)." },
+    { theme: "Deserts medicaux", color: "#fbbf24", pour: ["Obligation d'installation pour equilibrer l'offre", "Telemedicine comme solution immediate", "Maisons de sante pluridisciplinaires", "Delegation de taches aux infirmiers/pharmaciens"], contre: ["Liberte d'installation = principe fondamental", "L'obligation n'attire pas la vocation", "Manque global de medecins (formation insuffisante pendant des decennies)", "Solutions ne traitent pas la cause : conditions de travail, remuneration"], lois: "Loi Neuder (2025) : quotas d'admission ajustes aux besoins territoriaux. CPTS (Communautes Professionnelles Territoriales de Sante).", piege: "6 millions de Francais sans medecin traitant. Chiffre cle a retenir." },
+    { theme: "Secret medical vs securite publique", color: "#a78bfa", pour: ["Fondement de la confiance medecin-patient", "Droit fondamental du patient (art. L1110-4 CSP)", "Sans secret, les patients ne consulteraient plus", "Le medecin n'est pas un auxiliaire de police"], contre: ["Maladies contagieuses a declaration obligatoire", "Patient dangereux pour lui-meme ou autrui", "Maltraitance d'enfant = obligation de signalement", "Protection de la societe peut primer"], lois: "Art. 226-13 Code penal (violation du secret). Exceptions : signalement maltraitance, maladies a declaration obligatoire, dangerosity.", piege: "Le secret n'est JAMAIS absolu. Connaitre les 3 exceptions legales." },
+    { theme: "Inegalites sociales de sante", color: "#fb923c", pour: ["13 ans d'ecart d'esperance de vie entre riches et pauvres (hommes)", "30% des precaires renoncent aux soins", "Determinants sociaux > determinants biologiques", "Les PASS hospitaliers sont debordees"], contre: ["Responsabilite individuelle dans les comportements de sante", "Le systeme francais offre deja une couverture quasi-universelle (CMU, AME)", "Augmenter les depenses ne resout pas tout", "Education et prevention plus efficaces que le curatif"], lois: "CMU-C, AME, PUMA (Protection Universelle Maladie). CSS 100% remboursement. PASS (Permanence d'Acces aux Soins de Sante).", piege: "Ne jamais dire 'c'est la faute des pauvres'. Toujours penser en termes de determinants sociaux." },
+    { theme: "Environnement et sante (One Health)", color: "#34d399", pour: ["75% des maladies emergentes sont des zoonoses", "48 000 deces/an lies a la pollution en France", "Les PFAS contaminent l'eau potable", "Changement climatique = nouvelles pathologies (dengue en France metropolitaine)"], contre: ["Transition ecologique peut augmenter les couts de sante", "Les pays en developpement ne peuvent pas se payer le luxe ecologique", "Risque de green-washing dans le systeme de sante"], lois: "One Health adopte par l'OMS, la FAO et l'OIE. Plan national sante-environnement (PNSE4) en France.", piege: "Toujours lier sante humaine, animale et environnementale. Le jury adore ce concept." },
+    { theme: "Sante mentale", color: "#f472b6", pour: ["+30% troubles anxieux chez les 15-25 ans post-COVID", "Manque criant de pedopsychiatres", "Stigmatisation encore forte = frein a la consultation", "Burn-out des soignants : 50% en souffrance psychologique"], contre: ["Surmedicamentalisation des emotions normales", "Tendance a psychiatriser les difficultes de vie", "Mon Parcours Psy : 8 seances = insuffisant mais existant", "Necessite de distinguer mal-etre et pathologie"], lois: "Mon Parcours Psy (2022) : 8 seances remboursees. Assises de la sante mentale (2021). Plan psychiatrie et sante mentale.", piege: "Ne pas confondre tristesse et depression. Toujours nuancer entre souffrance et pathologie." },
+  ],
+  autoEvaluation: [
+    { cat: "Structure", items: ["J'ai fait une intro claire (contexte + problematique)", "Mon developpement etait organise en 2-3 axes", "J'ai conclu avec ma position + ouverture", "Mon discours avait un fil conducteur logique"] },
+    { cat: "Contenu", items: ["J'ai identifie les differents points de vue", "J'ai nuance mes arguments (pas de position tranchee)", "J'ai utilise des exemples concrets ou des chiffres", "J'ai fait preuve d'esprit critique"] },
+    { cat: "Communication", items: ["J'ai parle a un rythme pose et audible", "J'ai regarde le jury (pas le sol/plafond)", "J'ai evite les tics de langage (euh, en fait, voila)", "Ma posture etait droite et ouverte"] },
+    { cat: "Timing", items: ["Mon expose a dure entre 4 et 5 minutes", "Je n'ai pas depasse les 5 minutes d'expose", "J'ai bien utilise les 10 min de preparation"] },
+    { cat: "Gestion du jury", items: ["J'ai ecoute les questions sans interrompre", "J'ai pris 2-3 secondes avant de repondre", "J'ai integre les remarques du jury dans ma reflexion", "Je ne me suis pas braque face a une contradiction"] },
+  ],
+  actualites: [
+    { theme: "Fin de vie / Aide active a mourir", titre: "Projet de loi sur l'aide active a mourir (2025-2026)", desc: "Debat majeur en France. Loi Claeys-Leonetti (2016) autorise la sedation profonde mais PAS l'euthanasie ni le suicide assiste. Un projet de loi sur l'aide active a mourir a ete depose. La Belgique, les Pays-Bas et la Suisse ont des legislations plus permissives. Arguments pour : dignite, autonomie, souffrance insupportable. Arguments contre : pente glissante, role du medecin, soins palliatifs insuffisants.", hot: true },
+    { theme: "Intelligence Artificielle en sante", titre: "IA diagnostique et enjeux ethiques", desc: "L'IA atteint des performances superieures aux medecins dans certains diagnostics (radiologie, dermatologie). Enjeux : equite/biais algorithmiques, explicabilite ('boite noire'), vie privee des donnees, responsabilite en cas d'erreur, autonomie du medecin. L'IA ne remplace pas le medecin mais l'assiste. Question centrale : qui est responsable si l'IA se trompe ?", hot: true },
+    { theme: "Deserts medicaux", titre: "Crise de l'acces aux soins en zones rurales", desc: "6 millions de Francais n'ont pas de medecin traitant. Loi Neuder (2025) : quotas d'admission fixes selon les besoins des territoires. Solutions debattues : obligation d'installation, telemedicine, maisons de sante, delegation de taches aux infirmiers. La moyenne d'age des medecins generalistes augmente.", hot: true },
+    { theme: "Bioethique 2026", titre: "Etats generaux de la bioethique", desc: "Axes majeurs : examens genetiques predictifs (droit de savoir vs droit de ne pas savoir), neurosciences et neuroethique, cellules souches, procreation (PMA, GPA), fin de vie, IA en sante. Revision de la loi de bioethique tous les 7 ans en France." },
+    { theme: "Sante mentale des jeunes", titre: "Explosion des troubles psychiques chez les 15-25 ans", desc: "+30% de troubles anxieux et depressifs chez les jeunes depuis le COVID. Tentatives de suicide en hausse. Manque criant de pedopsychiatres. Dispositif Mon Parcours Psy (8 seances remboursees) juge insuffisant. Role des reseaux sociaux dans la comparaison sociale et le cyberharcelement." },
+    { theme: "Hopital public en crise", titre: "Departs massifs et fermetures de services", desc: "30% des postes non pourvus dans certains services. Fermetures de lits (100 000 lits en 20 ans). Burn-out massif des soignants. Debat sur la T2A (tarification a l'activite) vs financement au forfait. Attractivite salariale insuffisante. Les urgences saturees deviennent le symptome visible de la crise." },
+    { theme: "Environnement et sante (One Health)", titre: "Le concept Une Seule Sante adopte par l'OMS", desc: "Sante humaine, animale et environnementale sont interdependantes. 75% des maladies infectieuses emergentes sont des zoonoses. Deforestation, elevage intensif et changement climatique favorisent les pandemies. Pollution de l'air : 48 000 morts prematurees/an en France. Les PFAS ('polluants eternels') contaminent l'eau potable.", hot: true },
+    { theme: "Vaccination et confiance", titre: "Hesitation vaccinale et desinformation", desc: "La France est l'un des pays les plus defiants envers les vaccins. 11 vaccins obligatoires pour les nourrissons depuis 2018. Debat : obligation vs incitation. Desinformation virale sur les reseaux sociaux. Le mouvement anti-vax s'est renforce pendant le COVID." },
+    { theme: "Acces aux soins et inegalites", titre: "Gradient social de sante en France", desc: "Esperance de vie : 13 ans d'ecart entre les 5% les plus riches et les 5% les plus pauvres (hommes). 30% des personnes sous le seuil de pauvrete renoncent a des soins. Refus de soins envers les beneficiaires de la CMU documentes." },
+    { theme: "Penuries de medicaments", titre: "Ruptures d'approvisionnement chroniques", desc: "3000+ signalements de ruptures en 2025. Causes : 80% des principes actifs fabriques en Chine/Inde, just-in-time, tensions geopolitiques. Medicaments critiques touches : antibiotiques, anticancereux, anesthesiques. Stock de securite de 4 mois impose." },
+    { theme: "Numerique et Mon Espace Sante", titre: "Transformation numerique du systeme de sante", desc: "Mon Espace Sante : DMP + messagerie securisee. Telemedicine : ~10% des consultations. Risques : fracture numerique (personnes agees, precarite), cybersecurite des donnees de sante. Opportunites : suivi maladies chroniques, acces en zone rurale." },
+    { theme: "Antibio-resistance", titre: "La resistance aux antibiotiques, menace majeure selon l'OMS", desc: "1,2 million de morts/an dans le monde lies a l'antibio-resistance. La France est parmi les plus gros consommateurs d'antibiotiques en Europe. Sans action, 10 millions de morts/an d'ici 2050. Solutions : usage raisonne, nouvelles molecules, diagnostic rapide." },
+    { theme: "Loi immigration et sante", titre: "Acces aux soins des etrangers en France", desc: "Debat sur l'AME (Aide Medicale d'Etat) pour les sans-papiers. Arguments pour : droit fondamental, enjeu de sante publique (maladies contagieuses). Arguments contre : cout pour les finances publiques, effet d'appel. Les medecins rappellent : soigner tout le monde est un imperatif sanitaire ET ethique.", hot: true },
+  ],
+  jourJ: {
+    avant: [
+      { time: "J-7", text: "Reviser les grandes thematiques. Ne pas tout apprendre par coeur mais avoir des arguments cles par theme." },
+      { time: "J-3", text: "Faire des simulations chronometrees (10 min). S'enregistrer et se reecouter. Identifier 1 point a ameliorer par simulation." },
+      { time: "J-1", text: "Relire les actualites et sa fiche methodologique. NE PAS reviser de nouvelles questions. Relire les fiches thematiques." },
+      { time: "J-1 soir", text: "Preparer ses affaires (tenue, convocation, piece d'identite). Dormir tot. Pas d'ecran apres 22h." },
+    ],
+    matin: [
+      { time: "Au reveil", text: "Petit-dejeuner complet (glucides lents + proteines). Pas de cafe en exces. S'habiller proprement mais confortablement." },
+      { time: "Trajet", text: "Arriver 30 min en avance minimum. Ecouter de la musique calme ou rien du tout." },
+      { time: "Attente", text: "Coherence cardiaque : 5s inspire, 5s expire, 5 minutes. Pas de revision de derniere minute. Pas de discussion stressante avec les autres candidats." },
+    ],
+    pendant: [
+      { time: "Preparation (10 min)", text: "Tu es SEUL(E) dans la salle, sans jury. Lis le sujet 2 fois. Identifie acteurs, contexte, problematique. Ecris 3-4 mots-cles MAX — PAS de phrases." },
+      { time: "Expose (0-1 min)", text: "Sourire, regarder le jury. Presenter la situation en 2-3 phrases. Formuler la problematique clairement." },
+      { time: "Expose (1-4 min)", text: "Suivre ta structure : analyser les points de vue, discuter les enjeux (ethique, pratique, emotionnel, juridique), proposer des pistes concretes." },
+      { time: "Expose (4-5 min)", text: "Resumer ta position personnelle argumentee + ouverture vers une question plus large. 5 min MAX." },
+      { time: "Questions jury (5 min)", text: "Le jury te pose des questions. Ecouter. Prendre 2-3 secondes. Reformuler si besoin. Repondre avec calme, nuance et honnetete." },
+    ],
+    pieges: [
+      "Le jury te contredit : c'est un TEST. Il veut voir si tu nuances. Dis 'C'est un point de vue interessant, en effet on peut aussi considerer que...'",
+      "Tu ne sais pas : 'Je n'ai pas la certitude, mais en reflechissant...' puis raisonne a voix haute. C'est MIEUX que d'inventer.",
+      "Question personnelle inattendue : rester authentique. Pas de reponse formatee. Le jury detecte le faux.",
+      "Tu as un blanc : respire, reformule la question a voix haute, ca relance la reflexion.",
+      "Le jury a l'air ennuye : change de rythme, pose une question rethorique, fais une transition plus dynamique.",
+      "On te demande 'Vous n'avez rien d'autre a ajouter ?' : c'est une INVITATION a completer, pas un piege. Ajoute un point que tu n'as pas developpe.",
+    ]
+  },
+  exemplesReponses: [
+    {
+      question: "Votre voisin laisse son chien enferme dans la voiture par forte chaleur. Que faites-vous ?",
+      type: "RPC",
+      reponse: {
+        intro: "Cette situation met en tension le respect de la vie privee de mon voisin et la protection d'un animal en danger. C'est un dilemme entre non-intervention et devoir d'agir.",
+        developpement: ["D'abord, j'evalue la gravite immediate : l'animal est-il en detresse visible (haletement, apathie) ? Si oui, c'est une urgence.", "En premier lieu, je tente le dialogue avec mon voisin — peut-etre n'a-t-il pas conscience du danger. L'approche non-confrontationnelle est preferable.", "Si le dialogue echoue ou est impossible, je contacte les autorites competentes (police municipale, SPA) car la loi protege les animaux contre la maltraitance.", "En cas d'urgence vitale immediate, la loi autorise un citoyen a agir pour sauver un animal en danger de mort (casser la vitre en dernier recours, avec temoins)."],
+        conclusion: "Je privilegie toujours la desescalade et le dialogue, mais ma responsabilite de citoyen m'impose d'agir si une vie est en danger, qu'elle soit humaine ou animale.",
+        ouverture: "Cela pose la question plus large de notre rapport aux animaux et de leur statut juridique — depuis 2015, ce sont des 'etres vivants doues de sensibilite'."
+      }
+    },
+    {
+      question: "Document : image d'une personne sans abri dormant devant les urgences d'un hopital.",
+      type: "ARED",
+      reponse: {
+        intro: "Cette photographie montre une personne sans domicile fixe allongee devant l'entree d'un service d'urgences hospitalier. Le contraste entre la precarite de cette personne et le batiment de soins cree une tension visuelle forte.",
+        developpement: ["Observation : on voit un individu couche sur des cartons, probablement en hiver (vetements epais). L'enseigne lumineuse 'Urgences' est visible. Le cadrage met en evidence la proximite paradoxale entre lieu de soins et precarite.", "Premiere problematique : l'acces aux soins des personnes precaires. Les urgences sont ouvertes a tous, mais les barrieres sont multiples (administrative, peur du jugement, meconnaissance des droits).", "Deuxieme problematique : l'hopital a-t-il un role social au-dela du soin ? Les PASS existent mais sont debordees.", "Esprit critique : cette photo a pu etre cadree pour accentuer le contraste. Elle ne montre pas les dispositifs existants (maraudes, SAMU social, lits halte soins sante)."],
+        conclusion: "Cette image revele les inegalites sociales de sante au coeur meme du systeme de soins. Soigner ne suffit pas si les determinants sociaux ne sont pas pris en compte.",
+        ouverture: "Cela rejoint le concept de 'medecine sociale' et les travaux sur les determinants sociaux de la sante."
+      }
+    },
+    {
+      question: "Les parents d'un enfant de 5 ans refusent de le faire vacciner. Quelle est votre position ?",
+      type: "RPC",
+      reponse: {
+        intro: "Cette situation cree une tension entre la liberte parentale de faire des choix pour leur enfant et la protection de la sante de l'enfant et de la collectivite.",
+        developpement: ["Du point de vue des parents : ils exercent leur autorite parentale et peuvent avoir des peurs legitimes (effets secondaires, informations contradictoires sur Internet). Ils agissent probablement par amour et par souci de protection.", "Du point de vue medical : les 11 vaccins obligatoires ont un rapport benefice/risque scientifiquement prouve. Les effets secondaires graves sont extremement rares. Ne pas vacciner expose l'enfant ET les enfants immunodeprimes qui ne peuvent pas etre vaccines.", "Du point de vue juridique : depuis 2018, ces 11 vaccins sont obligatoires. L'enfant ne peut etre admis en collectivite sans. C'est une obligation legale, pas un choix.", "L'approche ideale : ecouter les peurs des parents sans les juger, expliquer avec pedagogie, leur laisser le temps de reflechir. Si refus persistant : rappeler les obligations legales et les consequences pour l'enfant."],
+        conclusion: "La liberte individuelle s'arrete la ou la sante publique commence. Mais la contrainte seule ne suffit pas — il faut retablir la confiance par le dialogue et la transparence.",
+        ouverture: "Cela renvoie a la question plus large de la confiance envers la medecine et la science, mise a mal par les scandales sanitaires et la desinformation en ligne."
+      }
+    },
+    {
+      question: "L'intelligence artificielle va-t-elle remplacer les medecins ? Discutez.",
+      type: "RPC",
+      reponse: {
+        intro: "Cette question oppose la promesse technologique de l'IA a la dimension humaine irreductible de la medecine. C'est un sujet qui melange fascination et inquietude.",
+        developpement: ["Ce que l'IA fait deja mieux : en radiologie et dermatologie, les algorithmes atteignent des taux de detection superieurs aux medecins pour certaines pathologies. L'IA peut aussi analyser des milliers d'articles scientifiques en quelques secondes.", "Ce que l'IA ne peut pas faire : toucher un patient, percevoir son angoisse, adapter son discours a sa personnalite, faire preuve d'empathie, prendre une decision ethique dans l'incertitude. Le soin est une relation, pas un algorithme.", "Les risques : biais algorithmiques (donnees d'entrainement qui sous-representent certaines populations), 'boite noire' (decisions non explicables), deresponsabilisation du medecin. Qui est responsable si l'IA se trompe ?", "La bonne question n'est pas 'l'IA va-t-elle remplacer ?' mais 'comment l'integrer intelligemment ?'. L'IA comme outil d'aide a la decision, pas comme decisionnaire."],
+        conclusion: "L'IA transformera profondement la pratique medicale, mais ne remplacera pas le medecin. Elle le liberera des taches repetitives pour qu'il se concentre sur ce qui fait le coeur du metier : la relation humaine.",
+        ouverture: "Cela pose aussi la question de la formation des futurs medecins : faudra-t-il integrer des cours de data science et d'ethique de l'IA dans le cursus ?"
+      }
+    },
+    {
+      question: "Photo d'un ecran de telemedicine montrant un medecin et un patient age. Discutez.",
+      type: "ARED",
+      reponse: {
+        intro: "Cette image montre un ecran d'ordinateur ou de tablette sur lequel un medecin en blouse blanche echange avec un patient age. C'est une illustration concrete de la telemedicine, qui s'est imposee depuis la pandemie.",
+        developpement: ["Observation : l'ecran est divise en deux — le medecin a gauche, le patient a droite. Le patient semble age (cheveux blancs), possiblement a son domicile. Le medecin porte une blouse, signe de professionnalisme maintenu malgre la distance.", "Avantages : acces aux soins pour les personnes a mobilite reduite, les zones rurales sans medecin, reduction du temps d'attente. 10% des consultations se font en telemedicine en 2024.", "Limites : fracture numerique (25% des plus de 75 ans ne maitrisent pas les outils numeriques), impossibilite de l'examen clinique, perte du langage non-verbal subtil, risque de deshumanisation.", "Esprit critique : cette image montre un cas 'ideal' — patient connecte, a l'aise avec la technologie. Elle ne montre pas les echecs : connexion qui coupe, patient isole sans materiel, medecin fatigue par l'enchainement de teleconsultations."],
+        conclusion: "La telemedicine est un outil complementaire precieux mais ne peut pas se substituer au contact humain, surtout pour les personnes agees ou les situations complexes.",
+        ouverture: "Cela questionne plus largement la place du numerique dans le soin : comment innover sans exclure ?"
+      }
+    },
+    {
+      question: "Comment annoncer a une famille le deces d'un proche ?",
+      type: "RPC",
+      reponse: {
+        intro: "L'annonce d'un deces est l'un des actes les plus difficiles de la pratique medicale. C'est un moment ou les mots ont un poids considerable et ou l'humanite du soignant est mise a l'epreuve.",
+        developpement: ["La preparation : trouver un lieu calme et intime, s'assurer de connaitre les circonstances exactes du deces, verifier l'identite de la famille. Ne JAMAIS annoncer dans un couloir ou par telephone si evitable.", "Les mots : aller a l'essentiel apres un court preambule. Utiliser des mots clairs — dire 'votre pere est decede' et non 'il nous a quittes' pour eviter toute ambiguite. Le silence qui suit est normal et necessaire.", "L'attitude : etre present physiquement, maintenir le contact visuel, ne pas fuir apres l'annonce. Laisser la famille exprimer ses emotions (colere, pleurs, sideration) sans les interrompre. Ne pas dire 'je comprends votre douleur' — on ne comprend pas.", "L'apres : proposer de voir le corps si c'est possible, donner des informations pratiques (demarches), proposer un soutien psychologique. Laisser un numero pour recontacter si besoin."],
+        conclusion: "Il n'y a pas de 'bonne' facon d'annoncer un deces — il y a des facons moins brutales. L'essentiel est d'etre authentique, present et respectueux du temps de la famille.",
+        ouverture: "Cela souleve la question de la formation des soignants a ces situations : l'empathie s'apprend-elle, et comment preparer les futurs medecins a ces moments ?"
+      }
+    },
+    {
+      question: "Document : image de militants ecologistes bloquant une autoroute. Analysez la situation.",
+      type: "ARED",
+      reponse: {
+        intro: "Cette photographie montre un groupe de personnes assises au milieu d'une autoroute, bloquant la circulation. Des banderoles sont visibles, indiquant une action militante ecologiste.",
+        developpement: ["Observation : des individus (probablement jeunes) sont assis sur le bitume. Derriere eux, des files de voitures a l'arret. Des forces de l'ordre sont presentes. Les banderoles evoquent l'urgence climatique.", "Premiere problematique : la desobeissance civile est-elle legitime quand les institutions ne repondent pas a l'urgence ? L'histoire montre que des droits ont ete conquis par la desobeissance (droits civiques, suffragettes).", "Deuxieme problematique : le blocage perturbe des personnes qui doivent aller au travail, a l'hopital, chercher leurs enfants. L'action fait aussi des 'victimes collerales' qui n'ont rien demande.", "Esprit critique : la photo est cadree pour montrer le contraste militants/automobilistes. Elle ne montre pas le contexte — est-ce une action isolee ou la enieme apres des annees d'inaction politique ?"],
+        conclusion: "La question n'est pas 'ont-ils le droit ?' mais 'la gravite de la cause justifie-t-elle ce moyen ?'. La reponse depend du rapport entre urgence climatique et liberte de circulation.",
+        ouverture: "Cela renvoie au concept de 'dilemme du bien commun' : comment agir pour la planete sans pieger le quotidien de ceux qu'on veut proteger ?"
+      }
+    },
+  ]
+};
+
+/* ============================================
+   REACT APP - Enhanced with Daily Journal + Evolution Dashboard
+   ============================================ */
+const { createElement: h, useState, useEffect, useCallback, useMemo, Fragment } = React;
+
+// Helpers
+const today = () => new Date().toISOString().split('T')[0];
+const formatDate = (d) => { const p = d.split('-'); return p[2]+'/'+p[1]+'/'+p[0]; };
+// Motivational messages
+const MOTIVATIONAL_MESSAGES = [
+  "Tu as deja survecu la PASS. L'oral, c'est ta victoire a aller chercher.",
+  "Chaque question travaillee, c'est un reflexe de plus le jour J.",
+  "Le jury ne cherche pas la perfection. Il cherche ta capacite a raisonner.",
+  "160 places a l'oral, et une est pour toi. Va la prendre.",
+  "Les meilleurs candidats ne savent pas tout. Ils structurent mieux que les autres.",
+  "5 minutes d'oral, ca se prepare. Et tu es en train de le faire.",
+  "Le stress est normal. Il prouve que ca compte pour toi.",
+  "Chaque jour de travail creuse l'ecart avec ceux qui n'y croient plus.",
+  "Le jury veut un futur medecin, pas une encyclopedie. Montre qui tu es.",
+  "Tu as deja le niveau. L'oral, c'est juste apprendre a le montrer.",
+  "Une reponse structuree vaut mieux que dix connaissances en vrac.",
+  "Les 4 minutes les plus importantes de ton annee. Et tu seras pret(e).",
+  "Personne n'attend de toi que tu sois parfait(e). On attend que tu sois lucide.",
+  "A force de t'entrainer, le jour J ressemblera a un entrainement de plus.",
+  "Tu ne revises pas pour survivre a l'oral. Tu te prepares pour le reussir."
+];
+
+// Phrases-cles toolkit
+const PHRASES_TOOLKIT = {
+  "Introduction": [
+    "Cette situation souleve un conflit entre...",
+    "Le probleme pose ici interroge la tension entre... et...",
+    "Il s'agit d'une situation ou s'opposent deux principes : ... et ...",
+    "Cette question nous place face a un dilemme entre... et...",
+    "Pour analyser cette situation, il faut d'abord identifier les acteurs concernes et les enjeux en presence.",
+    "Je reformulerais la problematique ainsi : comment concilier... tout en preservant... ?"
+  ],
+  "Argumentation": [
+    "Du point de vue ethique, on peut considerer que...",
+    "Sur le plan medical, cette situation implique que...",
+    "D'un point de vue deontologique, le medecin est tenu de...",
+    "L'argument principal en faveur de cette position est que...",
+    "En revanche, on peut objecter que...",
+    "Si l'on adopte la perspective du patient, il apparait que..."
+  ],
+  "References legales": [
+    "La loi Kouchner du 4 mars 2002 consacre le droit du patient a l'information et au consentement eclaire (art. L.1111-4 CSP).",
+    "La loi Leonetti du 22 avril 2005 interdit l'obstination deraisonnable et autorise l'arret des traitements en fin de vie.",
+    "La loi Claeys-Leonetti du 2 fevrier 2016 introduit le droit a la sedation profonde et continue et renforce les directives anticipees.",
+    "L'article 36 du Code de deontologie medicale rappelle que le consentement du patient doit etre recherche dans tous les cas.",
+    "L'article L.1110-5 du CSP garantit a toute personne le droit de recevoir les soins les plus appropries.",
+    "Le secret medical est un droit du patient, consacre par l'article L.1110-4 du CSP et l'article 4 du Code de deontologie."
+  ],
+  "Nuance": [
+    "Cependant, il convient de nuancer cette position en considerant que...",
+    "Cette analyse merite d'etre nuancee : dans certains cas...",
+    "Il serait reducteur de trancher sans considerer l'autre perspective, a savoir...",
+    "La realite clinique est souvent plus complexe que le cadre theorique : ici...",
+    "Neanmoins, cette position atteint ses limites lorsque...",
+    "On ne peut ignorer que, dans la pratique, la situation est rarement aussi tranchee."
+  ],
+  "Conclusion": [
+    "En definitive, je considere que la priorite doit etre donnee a...",
+    "Ma position est donc de privilegier... tout en restant attentif(ve) a...",
+    "Pour conclure, cette situation appelle une reponse mesuree qui concilie... et...",
+    "En tant que futur(e) medecin, je retiens de cette situation que...",
+    "Je me positionne en faveur de..., car cela respecte a la fois... et...",
+    "Cette reflexion ouvre sur une question plus large : celle de..."
+  ],
+  "Empathie": [
+    "Il est essentiel d'ecouter le patient dans sa globalite, au-dela de sa pathologie.",
+    "La souffrance du patient, qu'elle soit physique ou psychologique, doit etre reconnue et prise en charge.",
+    "Avant toute decision, il faut s'assurer que le patient a ete entendu et que ses inquietudes ont ete prises en compte.",
+    "L'accompagnement du patient passe par une communication claire, honnete et adaptee.",
+    "La relation de confiance entre le soignant et le patient est le socle de toute prise en charge therapeutique.",
+    "Respecter la dignite du patient, c'est aussi accepter ses choix, meme lorsqu'ils different de ce que la medecine recommande."
+  ]
+};
+
+const baseAllQuestions = [...DATA.questions.rpc, ...DATA.questions.ared, ...DATA.questions.motivation];
+const baseTotalQ = baseAllQuestions.length;
+
+function App() {
+  // Core state
+  const [view, setView] = useState('accueil');
+  const [search, setSearch] = useState('');
+  const [filter, setFilter] = useState('all');
+
+  // Persisted: question status (3 states: todo/review/done) — migrates from old array format
+  const [status, setStatus] = useState(() => {
+    try {
+      const raw = localStorage.getItem('oral-pass-done');
+      if (!raw) return {};
+      const parsed = JSON.parse(raw);
+      if (Array.isArray(parsed)) {
+        const migrated = {};
+        parsed.forEach(q => { migrated[q] = 'done'; });
+        localStorage.setItem('oral-pass-done', JSON.stringify(migrated));
+        return migrated;
+      }
+      return typeof parsed === 'object' && parsed !== null ? parsed : {};
+    } catch(e) { return {}; }
+  });
+  const [notes, setNotes] = useState(() => { try { return JSON.parse(localStorage.getItem('oral-pass-notes')) || {}; } catch(e) { return {}; } });
+  const [responses, setResponses] = useState(() => { try { return JSON.parse(localStorage.getItem('oral-pass-responses')) || {}; } catch(e) { return {}; } });
+  const [openResp, setOpenResp] = useState(null);
+
+  // Persisted: daily journal entries
+  const [dailyLog, setDailyLog] = useState(() => { try { const v = JSON.parse(localStorage.getItem('oral-pass-daily')); return Array.isArray(v) ? v : []; } catch(e) { return []; } });
+
+  // Persisted: streak
+  const [streak, setStreak] = useState(() => { try { return JSON.parse(localStorage.getItem('oral-pass-streak')) || { current: 0, best: 0, lastDate: '' }; } catch(e) { return { current: 0, best: 0, lastDate: '' }; } });
+
+  // Practice mode
+  const [practiceMode, setPracticeMode] = useState(false);
+  const [practiceQ, setPracticeQ] = useState(null);
+  const [practiceType, setPracticeType] = useState('rpc');
+  const [timer, setTimer] = useState(0);
+  const [timerRunning, setTimerRunning] = useState(false);
+  const [evalChecks, setEvalChecks] = useState({});
+  const [showEval, setShowEval] = useState(false);
+
+  // Custom questions (user-created)
+  const [customQuestions, setCustomQuestions] = useState(() => { try { return JSON.parse(localStorage.getItem('oral-pass-custom-questions')) || { rpc: [], ared: [] }; } catch(e) { return { rpc: [], ared: [] }; } });
+  const [showAddForm, setShowAddForm] = useState(null); // null or 'rpc'/'ared'
+  const [newQ, setNewQ] = useState({ q: '', theme: '', difficulte: 2, tags: '' });
+
+  // Journal form state
+  const [journalRatings, setJournalRatings] = useState({ structure: 0, contenu: 0, communication: 0, timing: 0, jury: 0 });
+  const [journalConfidence, setJournalConfidence] = useState(3);
+  const [journalNotes, setJournalNotes] = useState('');
+  const [journalQCount, setJournalQCount] = useState(1);
+  const [suiviTab, setSuiviTab] = useState('journal');
+
+  // Phrases toolkit state
+  const [phraseCat, setPhraseCat] = useState(Object.keys(PHRASES_TOOLKIT)[0]);
+  const [copiedPhrase, setCopiedPhrase] = useState(null);
+
+  // Persist to localStorage
+  useEffect(() => { localStorage.setItem('oral-pass-done', JSON.stringify(status)); }, [status]);
+  useEffect(() => { localStorage.setItem('oral-pass-notes', JSON.stringify(notes)); }, [notes]);
+  useEffect(() => { localStorage.setItem('oral-pass-responses', JSON.stringify(responses)); }, [responses]);
+  useEffect(() => { localStorage.setItem('oral-pass-daily', JSON.stringify(dailyLog)); }, [dailyLog]);
+  useEffect(() => { localStorage.setItem('oral-pass-streak', JSON.stringify(streak)); }, [streak]);
+  useEffect(() => { localStorage.setItem('oral-pass-custom-questions', JSON.stringify(customQuestions)); }, [customQuestions]);
+
+  // Timer
+  useEffect(() => {
+    if (!timerRunning) return;
+    const id = setInterval(() => setTimer(t => t + 1), 1000);
+    return () => clearInterval(id);
+  }, [timerRunning]);
+
+  // Update streak on mount
+  useEffect(() => {
+    const t = today();
+    const y = new Date(); y.setDate(y.getDate()-1);
+    const yesterday = y.toISOString().split('T')[0];
+    setStreak(s => {
+      if (s.lastDate === t) return s;
+      if (s.lastDate === yesterday) return s; // streak still valid, just not incremented yet
+      if (s.lastDate && s.lastDate !== t && s.lastDate !== yesterday) return { ...s, current: 0 }; // streak broken
+      return s;
+    });
+  }, []);
+
+  // Merge DATA questions with custom questions
+  const getQuestions = useCallback((type) => {
+    const base = DATA.questions[type] || [];
+    const custom = (customQuestions[type] || []).map(q => ({ ...q, _custom: true }));
+    return [...base, ...custom];
+  }, [customQuestions]);
+
+  const allQuestions = useMemo(() => [...getQuestions('rpc'), ...getQuestions('ared'), ...getQuestions('motivation')], [getQuestions]);
+  const totalQ = allQuestions.length;
+
+  // Add custom question
+  const addCustomQuestion = useCallback((type) => {
+    if (!newQ.q.trim()) return;
+    const question = {
+      q: newQ.q.trim(),
+      theme: newQ.theme.trim() || 'Personnalise',
+      difficulte: parseInt(newQ.difficulte) || 2,
+      tags: newQ.tags.split(',').map(t => t.trim().toLowerCase()).filter(Boolean),
+      _id: Date.now()
+    };
+    setCustomQuestions(cq => ({ ...cq, [type]: [...(cq[type] || []), question] }));
+    setNewQ({ q: '', theme: '', difficulte: 2, tags: '' });
+    setShowAddForm(null);
+  }, [newQ]);
+
+  // Delete custom question
+  const deleteCustomQuestion = useCallback((type, id) => {
+    setCustomQuestions(cq => ({ ...cq, [type]: (cq[type] || []).filter(q => q._id !== id) }));
+  }, []);
+
+  const getStatus = useCallback((q) => status[q] || 'todo', [status]);
+  const STATUS_CYCLE = ['todo', 'review', 'done'];
+  const STATUS_LABELS = { todo: 'A faire', review: 'A revoir', done: 'Acquis' };
+  const STATUS_ICONS = { todo: '○', review: '⟳', done: '✓' };
+
+  const cycleStatus = useCallback((q) => {
+    setStatus(prev => {
+      const current = prev[q] || 'todo';
+      const nextIdx = (STATUS_CYCLE.indexOf(current) + 1) % STATUS_CYCLE.length;
+      const next = STATUS_CYCLE[nextIdx];
+      const updated = { ...prev };
+      if (next === 'todo') { delete updated[q]; } else { updated[q] = next; }
+      return updated;
+    });
+  }, []);
+
+  const startPractice = useCallback((type) => {
+    const pool = getQuestions(type);
+    const q = pool[Math.floor(Math.random() * pool.length)];
+    setPracticeType(type);
+    setPracticeQ(q);
+    setPracticeMode(true);
+    setTimer(0);
+    setTimerRunning(true);
+    setEvalChecks({});
+    setShowEval(false);
+  }, [getQuestions]);
+
+  const stopPractice = useCallback(() => {
+    setTimerRunning(false);
+    setShowEval(true);
+  }, []);
+
+  const nextPractice = useCallback(() => {
+    startPractice(practiceType);
+  }, [practiceType, startPractice]);
+
+  const exitPractice = useCallback(() => {
+    setPracticeMode(false);
+    setTimerRunning(false);
+    setShowEval(false);
+  }, []);
+
+  // Save journal entry
+  const saveJournalEntry = useCallback(() => {
+    const t = today();
+    const entry = {
+      date: t,
+      questionsCount: journalQCount,
+      ratings: { ...journalRatings },
+      confidence: journalConfidence,
+      notes: journalNotes,
+      timestamp: Date.now()
+    };
+    setDailyLog(log => [...log, entry]);
+    // Update streak
+    const y = new Date(); y.setDate(y.getDate()-1);
+    const yesterday = y.toISOString().split('T')[0];
+    setStreak(s => {
+      if (s.lastDate === t) return { ...s, lastDate: t }; // already logged today
+      const newCurrent = (s.lastDate === yesterday || s.lastDate === t) ? s.current + 1 : 1;
+      return { current: newCurrent, best: Math.max(s.best, newCurrent), lastDate: t };
+    });
+    // Reset form
+    setJournalRatings({ structure: 0, contenu: 0, communication: 0, timing: 0, jury: 0 });
+    setJournalConfidence(3);
+    setJournalNotes('');
+    setJournalQCount(1);
+  }, [journalRatings, journalConfidence, journalNotes, journalQCount]);
+
+  // Computed stats (done=100%, review=50%)
+  const statusCounts = useMemo(() => {
+    const c = { todo: 0, review: 0, done: 0 };
+    allQuestions.forEach(q => { const s = status[q.q] || 'todo'; c[s]++; });
+    return c;
+  }, [allQuestions, status]);
+  const doneCount = statusCounts.done + statusCounts.review;
+  const progressPct = totalQ > 0 ? Math.round(((statusCounts.done + statusCounts.review * 0.5) / totalQ) * 100) : 0;
+  const todayEntries = dailyLog.filter(e => e.date === today());
+  const todayQDone = todayEntries.reduce((s, e) => s + e.questionsCount, 0);
+  const dailyGoal = 5;
+
+  // Format timer
+  const fmtTimer = (s) => { const m = Math.floor(s/60); const sec = s%60; return String(m).padStart(2,'0')+':'+String(sec).padStart(2,'0'); };
+
+  // Get unique themes
+  const getThemes = (type) => [...new Set(getQuestions(type).map(q => q.theme))];
+
+  // ===== RENDER FUNCTIONS =====
+
+  const renderNav = () => {
+    const tabs = [
+      { id: 'accueil', label: 'Accueil' },
+      { id: 'rpc', label: 'Epreuve 1 — RPC' },
+      { id: 'ared', label: 'Epreuve 2 — ARED' },
+      { id: 'motivation', label: 'Motivation' },
+      { id: 'methodo', label: 'Methodologie' },
+      { id: 'fiches', label: 'Fiches thematiques' },
+      { id: 'exemples', label: 'Exemples corriges' },
+      { id: 'actualites', label: 'Actualites 2026' },
+      { id: 'chiffres', label: 'Chiffres cles', highlight: true },
+      { id: 'phrases', label: 'Phrases-cles', highlight: true },
+      { id: 'jourj', label: 'Jour J' },
+      { id: 'suivi', label: 'Suivi & Progression', highlight: true },
+      { id: 'pratique', label: 'Entrainement' },
+    ];
+    return h('nav', { className: 'nav' },
+      tabs.map(t => h('button', {
+        key: t.id,
+        className: 'nav__btn' + (view === t.id ? ' nav__btn--active' : '') + (t.highlight ? ' nav__btn--highlight' : ''),
+        onClick: () => { setView(t.id); setSearch(''); setFilter('all'); }
+      }, t.label))
+    );
+  };
+
+  const renderStreakBanner = () => {
+    if (streak.current === 0 && streak.best === 0) return null;
+    return h('div', { className: 'streak-banner fade-in' },
+      h('span', { className: 'streak-fire' }, streak.current > 0 ? '🔥' : '❄️'),
+      h('span', { className: 'streak-count' }, streak.current + ' jour' + (streak.current > 1 ? 's' : '')),
+      h('span', { className: 'streak-label' }, streak.current > 0 ? 'de suite !' : 'Streak perdu...'),
+      streak.best > 0 ? h('span', { className: 'streak-best' }, 'Record : ' + streak.best + 'j') : null
+    );
+  };
+
+  const renderDailyGoal = () => {
+    const pct = Math.min(100, Math.round(todayQDone / dailyGoal * 100));
+    const r = 24, c = 2 * Math.PI * r;
+    const offset = c - (pct / 100) * c;
+    return h('div', { className: 'daily-goal fade-in' },
+      h('svg', { className: 'daily-goal__ring', viewBox: '0 0 60 60', width: 60, height: 60 },
+        h('circle', { cx: 30, cy: 30, r: r, fill: 'none', stroke: 'rgba(255,255,255,0.1)', strokeWidth: 4 }),
+        h('circle', { cx: 30, cy: 30, r: r, fill: 'none', stroke: pct >= 100 ? '#4ade80' : '#7c6df0', strokeWidth: 4, strokeDasharray: c, strokeDashoffset: offset, strokeLinecap: 'round', transform: 'rotate(-90 30 30)', style: { transition: 'stroke-dashoffset 0.5s ease' } }),
+        h('text', { x: 30, y: 33, textAnchor: 'middle', fill: 'white', fontSize: '13', fontWeight: '700' }, pct + '%')
+      ),
+      h('div', { className: 'daily-goal__info' },
+        h('div', { className: 'daily-goal__title' }, pct >= 100 ? 'Objectif du jour atteint !' : 'Objectif du jour'),
+        h('div', { className: 'daily-goal__sub' }, todayQDone + '/' + dailyGoal + ' questions travaillees aujourd\'hui')
+      )
+    );
+  };
+
+  const renderStats = () => {
+    const rpcAll = getQuestions('rpc'), aredAll = getQuestions('ared'), motAll = getQuestions('motivation');
+    const countByStatus = (qs) => { const d = qs.filter(q => status[q.q] === 'done').length; const r = qs.filter(q => status[q.q] === 'review').length; return { done: d, review: r, total: d + r }; };
+    const rpcS = countByStatus(rpcAll), aredS = countByStatus(aredAll), motS = countByStatus(motAll);
+    return h('div', { className: 'stats-bar fade-in' },
+      h('div', { className: 'stat-card' },
+        h('div', { className: 'stat-card__value', style: { color: 'var(--accent-light)' } }, statusCounts.done + statusCounts.review + '/' + totalQ),
+        h('div', { className: 'stat-card__label' }, 'Questions travaillees'),
+        h('div', { style: { fontSize: '0.65rem', color: 'var(--text-muted)', marginTop: '0.2rem' } }, statusCounts.done + ' acquis · ' + statusCounts.review + ' a revoir')
+      ),
+      h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--success)' } }, progressPct + '%'), h('div', { className: 'stat-card__label' }, 'Progression')),
+      h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--info)' } }, rpcS.total + '/' + rpcAll.length), h('div', { className: 'stat-card__label' }, 'RPC')),
+      h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--warning)' } }, aredS.total + '/' + aredAll.length), h('div', { className: 'stat-card__label' }, 'ARED')),
+      h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: '#f472b6' } }, motS.total + '/' + motAll.length), h('div', { className: 'stat-card__label' }, 'Motivation')),
+      h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--warning)' } }, dailyLog.length), h('div', { className: 'stat-card__label' }, 'Sessions journal'))
+    );
+  };
+
+  // Countdown to exam
+  const renderCountdown = () => {
+    const examDate = new Date('2026-06-02T08:00:00');
+    const now = new Date();
+    const diff = examDate - now;
+    if (diff <= 0) return h('div', { className: 'countdown-banner fade-in' },
+      h('div', { className: 'countdown__days' }, 'C\'est le jour J !'),
+      h('div', { className: 'countdown__label' }, 'Tu es pret(e). Va chercher ta place.')
+    );
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    return h('div', { className: 'countdown-banner fade-in' },
+      h('div', { className: 'countdown__days' }, days === 0 ? 'Demain !' : 'J-' + days),
+      h('div', { className: 'countdown__label' }, days === 0 ? 'L\'oral est demain. Derniere ligne droite.' : days === 1 ? 'Plus qu\'un jour. Tu es pret(e).' : days + ' jours avant l\'oral — ' + hours + 'h restantes'),
+      h('div', { className: 'countdown__sub' }, 'Epreuves orales : 2-3 Juin 2026 · Prep : chaque minute compte')
+    );
+  };
+
+  // Motivational message (random, stable per session)
+  const motivMsg = useMemo(() => MOTIVATIONAL_MESSAGES[Math.floor(Math.random() * MOTIVATIONAL_MESSAGES.length)], []);
+
+  const renderAccueil = () => {
+    return h('div', { className: 'slide-up' },
+      renderCountdown(),
+      h('div', { className: 'motiv-banner fade-in' }, '💬 ' + motivMsg),
+      renderDailyGoal(),
+      renderStats(),
+      h('div', { className: 'progress' }, h('div', { className: 'progress__fill', style: { width: progressPct + '%' } })),
+      h('div', { className: 'card card--accent' },
+        h('h2', { style: { marginBottom: '0.8rem' } }, 'Preparation complete a l\'oral PASS Sorbonne 2026'),
+        h('p', { style: { color: 'var(--text-secondary)', marginBottom: '1rem' } }, 'Cette application regroupe TOUT ce dont tu as besoin :'),
+        h('ul', { style: { listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' } },
+          [totalQ + ' questions classees par epreuve et thematique',
+           'Methodologie detaillee pour chaque type d\'epreuve',
+           '8 fiches thematiques avec arguments pour/contre prets a l\'emploi',
+           '7 exemples de reponses structurees et commentees',
+           '13 actualites 2025-2026 a connaitre',
+           'Guide jour J : de la veille a la sortie de l\'epreuve',
+           'Journal quotidien + graphiques de progression',
+           'Entrainement chronometre avec auto-evaluation'].map((t,i) =>
+            h('li', { key: i, style: { fontSize: '0.9rem', color: 'var(--text-secondary)' } },
+              h('strong', { style: { color: 'var(--text)' } }, t.split(' ')[0] + ' ' + (t.split(' ')[1] || '')),
+              ' ' + t.split(' ').slice(2).join(' ')
+            )
+          )
+        )
+      ),
+      h('div', { className: 'card', style: { borderLeft: '4px solid var(--danger)' } },
+        h('div', { style: { display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.5rem', marginBottom: '0.8rem' } },
+          h('div', { style: { fontSize: '0.82rem' } }, '📅 Garnison : ', h('strong', { style: { color: 'var(--danger)' } }, '28 Mai 2026')),
+          h('div', { style: { fontSize: '0.82rem' } }, '📅 Prep oraux : ', h('strong', { style: { color: 'var(--warning)' } }, '2-3 Juin 2026')),
+          h('div', { style: { fontSize: '0.82rem' } }, '🎯 Places oral : ', h('strong', { style: { color: 'var(--success)' } }, '160'))
+        )
+      ),
+      h('div', { className: 'card' },
+        h('h3', { style: { marginBottom: '0.8rem' } }, 'Format de l\'oral — ' + DATA.format.university),
+        h('div', { style: { display: 'grid', gap: '0.5rem', fontSize: '0.85rem', color: 'var(--text-secondary)' } },
+          h('div', null, 'Nombre d\'epreuves : ', h('strong', { style: { color: 'var(--text)' } }, DATA.format.epreuves)),
+          h('div', null, 'Poids de l\'oral : ', h('strong', { style: { color: 'var(--text)' } }, DATA.format.poids_oral)),
+          h('div', null, 'Scoring : ', h('strong', { style: { color: 'var(--accent-light)' } }, DATA.format.scoring)),
+          h('div', null, 'Jury : ', h('strong', { style: { color: 'var(--text)' } }, DATA.format.jury)),
+          h('div', null, 'Places MMOPK totales : ', h('strong', { style: { color: 'var(--success)' } }, DATA.format.places.total_mmopk + ' (155 ecrit + 160 oral)'))
+        )
+      ),
+      h('div', { className: 'method-grid' },
+        h('div', { className: 'card card--accent' },
+          h('h3', { style: { marginBottom: '0.5rem', color: 'var(--accent-light)' } }, DATA.format.epreuve1.nom),
+          h('p', { style: { fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.3rem' } }, DATA.format.epreuve1.description),
+          h('p', { style: { fontSize: '0.78rem', color: 'var(--info)', marginBottom: '0.3rem' } }, DATA.format.epreuve1.format_detail),
+          h('p', { style: { fontSize: '0.82rem', color: 'var(--warning)', fontStyle: 'italic' } }, DATA.format.epreuve1.conseil_cle)
+        ),
+        h('div', { className: 'card card--warning' },
+          h('h3', { style: { marginBottom: '0.5rem', color: 'var(--warning)' } }, DATA.format.epreuve2.nom),
+          h('p', { style: { fontSize: '0.85rem', color: 'var(--text-secondary)', marginBottom: '0.3rem' } }, DATA.format.epreuve2.description),
+          h('p', { style: { fontSize: '0.78rem', color: 'var(--danger)', fontWeight: 600, marginBottom: '0.3rem' } }, DATA.format.epreuve2.format_detail),
+          h('p', { style: { fontSize: '0.82rem', color: 'var(--warning)', fontStyle: 'italic' } }, DATA.format.epreuve2.conseil_cle)
+        )
+      )
+    );
+  };
+
+  const renderQuestionList = (type) => {
+    const questions = getQuestions(type);
+    const themes = getThemes(type);
+    const canAddCustom = type === 'rpc' || type === 'ared';
+    const filtered = questions.filter(q => {
+      if (filter !== 'all' && q.theme !== filter) return false;
+      if (search && !q.q.toLowerCase().includes(search.toLowerCase()) && !q.tags.some(t => t.includes(search.toLowerCase()))) return false;
+      return true;
+    });
+    // Questions modifiees en haut
+    filtered.sort((a, b) => {
+      const aEdited = responses[a.q] ? 1 : 0;
+      const bEdited = responses[b.q] ? 1 : 0;
+      return bEdited - aEdited;
+    });
+    const fWorked = filtered.filter(q => status[q.q] === 'done' || status[q.q] === 'review').length;
+    const fPct = filtered.length > 0 ? Math.round(fWorked / filtered.length * 100) : 0;
+
+    // Add question form
+    const renderAddForm = () => {
+      if (showAddForm !== type) return null;
+      const existingThemes = [...new Set(DATA.questions[type].map(q => q.theme))];
+      return h('div', { className: 'add-form fade-in' },
+        h('div', { className: 'add-form__title' }, '➕ Ajouter une question ' + (type === 'rpc' ? 'RPC' : 'ARED')),
+        h('div', { className: 'add-form__field' },
+          h('label', { className: 'add-form__label' }, 'Question *'),
+          h('textarea', {
+            className: 'add-form__input add-form__input--textarea',
+            placeholder: type === 'rpc' ? 'Ex: Un patient refuse une transfusion sanguine pour raisons religieuses...' : 'Ex: Document montrant l\'evolution de la consommation de tabac chez les jeunes...',
+            value: newQ.q,
+            onChange: e => setNewQ(nq => ({ ...nq, q: e.target.value }))
+          })
+        ),
+        h('div', { className: 'add-form__row' },
+          h('div', { className: 'add-form__field', style: { flex: 1 } },
+            h('label', { className: 'add-form__label' }, 'Theme'),
+            h('select', {
+              className: 'add-form__select',
+              value: newQ.theme,
+              onChange: e => setNewQ(nq => ({ ...nq, theme: e.target.value }))
+            },
+              h('option', { value: '' }, 'Choisir un theme...'),
+              existingThemes.map(t => h('option', { key: t, value: t }, t)),
+              h('option', { value: 'Personnalise' }, 'Personnalise')
+            )
+          ),
+          h('div', { className: 'add-form__field', style: { width: '120px' } },
+            h('label', { className: 'add-form__label' }, 'Difficulte'),
+            h('select', {
+              className: 'add-form__select',
+              value: newQ.difficulte,
+              onChange: e => setNewQ(nq => ({ ...nq, difficulte: parseInt(e.target.value) }))
+            },
+              h('option', { value: 1 }, 'Facile'),
+              h('option', { value: 2 }, 'Moyen'),
+              h('option', { value: 3 }, 'Difficile')
+            )
+          )
+        ),
+        h('div', { className: 'add-form__field' },
+          h('label', { className: 'add-form__label' }, 'Tags (separes par des virgules)'),
+          h('input', {
+            className: 'add-form__input',
+            placeholder: 'Ex: ethique, autonomie, legislation',
+            value: newQ.tags,
+            onChange: e => setNewQ(nq => ({ ...nq, tags: e.target.value }))
+          })
+        ),
+        h('div', { className: 'add-form__actions' },
+          h('button', {
+            className: 'resp-actions__btn',
+            style: { background: 'var(--accent)', color: 'white', border: 'none', padding: '0.5rem 1.2rem', borderRadius: '8px', fontWeight: 600, cursor: 'pointer' },
+            onClick: () => addCustomQuestion(type)
+          }, 'Ajouter'),
+          h('button', {
+            className: 'resp-actions__btn',
+            style: { padding: '0.5rem 1.2rem', cursor: 'pointer' },
+            onClick: () => { setShowAddForm(null); setNewQ({ q: '', theme: '', difficulte: 2, tags: '' }); }
+          }, 'Annuler')
+        )
+      );
+    };
+
+    return h('div', { className: 'slide-up' },
+      h('div', { className: 'search-bar' },
+        h('input', { className: 'search-input', placeholder: 'Rechercher une question ou un tag...', value: search, onChange: e => setSearch(e.target.value) }),
+        h('button', { className: 'filter-btn' + (filter === 'all' ? ' filter-btn--active' : ''), onClick: () => setFilter('all') }, 'Tous'),
+        themes.map(t => h('button', { key: t, className: 'filter-btn' + (filter === t ? ' filter-btn--active' : ''), onClick: () => setFilter(t) }, t))
+      ),
+      h('div', { className: 'progress', style: { marginBottom: '0.5rem' } }, h('div', { className: 'progress__fill', style: { width: fPct + '%' } })),
+      h('div', { style: { fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '1rem' } }, fWorked + '/' + filtered.length + ' travaillees (' + fPct + '%)'),
+      // Add custom question button
+      canAddCustom ? h('button', {
+        className: 'add-question-btn',
+        onClick: () => setShowAddForm(showAddForm === type ? null : type)
+      }, '+ Ajouter une question personnalisee') : null,
+      renderAddForm(),
+      filtered.map((q, i) => {
+        const isOpen = openResp === q.q;
+        const userResp = responses[q.q];
+        const isEdited = !!userResp;
+        const currentText = userResp || '';
+        const isCustom = q._custom;
+
+        const qStatus = getStatus(q.q);
+        return h('div', { key: isCustom ? 'c-' + q._id : i, className: 'question question--' + qStatus + (isCustom ? ' question--custom' : '') },
+          // Clickable header for status cycle
+          h('div', { style: { cursor: 'pointer', display: 'flex', alignItems: 'flex-start', gap: '0.5rem' }, onClick: () => cycleStatus(q.q) },
+            h('div', { className: 'status-icon status-icon--' + qStatus, title: STATUS_LABELS[qStatus] + ' (cliquer pour changer)' }, STATUS_ICONS[qStatus]),
+            h('div', { style: { flex: 1 } },
+              h('div', { className: 'question__text' },
+                q.q,
+                isCustom ? h('span', { className: 'question__badge-custom' }, 'Perso') : null,
+                qStatus !== 'todo' ? h('span', { className: 'status-badge status-badge--' + qStatus }, STATUS_LABELS[qStatus]) : null
+              ),
+              h('div', { className: 'question__meta' },
+                h('span', { className: 'question__diff question__diff--' + q.difficulte }, ['Facile','Moyen','Difficile'][q.difficulte-1]),
+                q.tags.map((t,j) => h('span', { key: j, className: 'question__tag' }, t))
+              )
+            ),
+            isCustom ? h('button', {
+              className: 'question__delete',
+              title: 'Supprimer cette question',
+              onClick: e => { e.stopPropagation(); deleteCustomQuestion(type, q._id); }
+            }, '✕') : null
+          ),
+          // Accordion toggle
+          h('button', {
+            className: 'resp-toggle' + (isOpen ? ' resp-toggle--open' : '') + (isEdited ? ' resp-toggle--edited' : ''),
+            onClick: e => { e.stopPropagation(); setOpenResp(isOpen ? null : q.q); }
+          },
+            h('span', { className: 'resp-toggle__arrow' }, '▼'),
+            isEdited ? 'Reponse (modifiee)' : 'Reponse (vide)'
+          ),
+          // Accordion body
+          h('div', { className: 'resp-body' + (isOpen ? ' resp-body--open' : '') },
+            h('textarea', {
+              value: currentText,
+              placeholder: 'Ecris ta reponse ici...',
+              onClick: e => e.stopPropagation(),
+              onChange: e => { const v = e.target.value; const ta = e.target; ta.style.height = 'auto'; ta.style.height = ta.scrollHeight + 'px'; setResponses(r => ({...r, [q.q]: v})); },
+              ref: el => { if (el && isOpen && !el._autoSized) { el._autoSized = true; requestAnimationFrame(() => { el.style.height = 'auto'; el.style.height = el.scrollHeight + 'px'; }); } if (el && !isOpen) { el._autoSized = false; } }
+            }),
+            h('div', { className: 'resp-actions' },
+              h('span', { className: 'resp-actions__hint' }, isEdited ? '✏️ Modifie par toi' : '📝 Ecris ta reponse ici'),
+              isEdited ? h('button', {
+                className: 'resp-actions__btn',
+                onClick: e => { e.stopPropagation(); setResponses(r => { const copy = {...r}; delete copy[q.q]; return copy; }); }
+              }, 'Reinitialiser') : null
+            )
+          )
+        );
+      })
+    );
+  };
+
+  const renderMethodo = () => {
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '📋 Methodologie'),
+      h('div', { className: 'method-grid' },
+        h('div', { className: 'method-card' },
+          h('div', { className: 'method-card__title' }, '🎯 Methode RPC — Expose (5 min max) + Questions (5 min)'),
+          h('p', { style: { fontSize: '0.78rem', color: 'var(--accent-light)', marginBottom: '0.5rem', fontStyle: 'italic' } }, '⏱ 10 min de preparation seul(e) → puis 10 min devant le jury (sans diaporama)'),
+          h('ul', { className: 'method-card__list' },
+            ['PREPARATION (10 min seul) : Lire la vignette, identifier problematique + 2-3 axes', 'Introduction (1 min) : Reformuler la situation + annoncer la problematique', 'Analyse (2 min) : Identifier acteurs, enjeux, points de vue divergents', 'Discussion (1.5 min) : Arguments pour/contre, nuances, exemples concrets', 'Conclusion (0.5 min) : Position personnelle argumentee + ouverture', 'Questions jury (5 min) : Ecouter, reflechir, nuancer, pas de reponse precipitee'].map((t,i) =>
+              h('li', { key: i, style: { '--dot-color': 'var(--accent)' } }, h('span', { style: { color: 'var(--accent)', width: 8, height: 8, borderRadius: '50%', background: 'var(--accent)', display: 'inline-block', flexShrink: 0, marginTop: '0.5rem' } }), t)
+            )
+          )
+        ),
+        h('div', { className: 'method-card' },
+          h('div', { className: 'method-card__title' }, '📊 Methode ARED — Expose (5 min max) + Questions'),
+          h('p', { style: { fontSize: '0.78rem', color: 'var(--warning)', marginBottom: '0.5rem', fontStyle: 'italic', fontWeight: 600 } }, '⚠️ ATTENTION : Tu n\'auras PAS le document pendant ta preparation ! Memorise-le d\'abord.'),
+          h('p', { style: { fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '0.5rem' } }, '⏱ 10 min avec le document (memoriser) → document retire → 10 min de preparation sans document ni internet → 10 min devant le jury'),
+          h('ul', { className: 'method-card__list' },
+            ['MEMORISATION (10 min) : Note tous les chiffres, tendances, elements visuels cles du document', 'PREPARATION (10 min sans document) : Structure ton expose de memoire', 'Restitution (1.5 min) : Decrire le document et ses donnees de memoire', 'Problematiques (2 min) : 2-3 enjeux souleves par les donnees', 'Esprit critique (1 min) : Limites des donnees, biais possibles, ce qui manque', 'Conclusion (0.5 min) : Synthese + ouverture', 'Questions jury : Ecouter, nuancer, montrer esprit d\'ouverture'].map((t,i) =>
+              h('li', { key: i }, h('span', { style: { color: 'var(--warning)', width: 8, height: 8, borderRadius: '50%', background: 'var(--warning)', display: 'inline-block', flexShrink: 0, marginTop: '0.5rem' } }), t)
+            )
+          )
+        ),
+        h('div', { className: 'method-card' },
+          h('div', { className: 'method-card__title' }, '💡 Methode Motivation'),
+          h('ul', { className: 'method-card__list' },
+            ['Etre authentique : pas de reponse formatee', 'Montrer sa reflexion personnelle', 'Avoir des exemples concrets (stages, experiences)', 'Connaitre le systeme de sante et ses enjeux', 'Montrer humilite et ouverture d\'esprit'].map((t,i) =>
+              h('li', { key: i }, h('span', { style: { color: '#f472b6', width: 8, height: 8, borderRadius: '50%', background: '#f472b6', display: 'inline-block', flexShrink: 0, marginTop: '0.5rem' } }), t)
+            )
+          )
+        ),
+        h('div', { className: 'method-card' },
+          h('div', { className: 'method-card__title' }, '⚡ Competences evaluees'),
+          h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.4rem' } },
+            DATA.competences.map((c, i) =>
+              h('div', { key: i, style: { display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.82rem' } },
+                h('span', null, c.nom),
+                h('span', { style: { padding: '0.1rem 0.4rem', borderRadius: '8px', fontSize: '0.68rem', fontWeight: 600, background: c.poids === 'Elevee' ? 'var(--danger-bg)' : c.poids === 'Moyenne' ? 'var(--warning-bg)' : 'var(--bg-elevated)', color: c.poids === 'Elevee' ? 'var(--danger)' : c.poids === 'Moyenne' ? 'var(--warning)' : 'var(--text-muted)' } }, c.poids)
+              )
+            )
+          )
+        )
+      )
+    );
+  };
+
+  const renderFiches = () => {
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '📚 Fiches thematiques'),
+      h('p', { style: { color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' } }, 'Arguments pour/contre prets a l\'emploi pour les sujets les plus probables.'),
+      h('div', { className: 'fiche-grid' },
+        DATA.fichesThematiques.map((f, i) =>
+          h('div', { key: i, className: 'fiche-card', style: { borderTop: '3px solid ' + f.color } },
+            h('div', { className: 'fiche-card__title', style: { color: f.color } }, f.theme),
+            h('div', { className: 'fiche-card__section' },
+              h('div', { className: 'fiche-card__label', style: { color: 'var(--success)' } }, '✅ POUR'),
+              h('div', { className: 'fiche-card__items' }, f.pour.map((p, j) => h('div', { key: j }, '• ' + p)))
+            ),
+            h('div', { className: 'fiche-card__section' },
+              h('div', { className: 'fiche-card__label', style: { color: 'var(--danger)' } }, '❌ CONTRE'),
+              h('div', { className: 'fiche-card__items' }, f.contre.map((c, j) => h('div', { key: j }, '• ' + c)))
+            ),
+            h('div', { className: 'fiche-card__law' }, '📜 ' + f.lois),
+            h('div', { className: 'fiche-card__trap' }, '⚠️ ' + f.piege)
+          )
+        )
+      )
+    );
+  };
+
+  const renderExemples = () => {
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '✍️ Exemples de reponses corriges'),
+      DATA.exemplesReponses.map((ex, i) =>
+        h('div', { key: i, className: 'exemple' },
+          h('div', { className: 'exemple__question' }, ex.question),
+          h('span', { className: 'exemple__type' }, ex.type),
+          h('div', { className: 'exemple__section' }, h('div', { className: 'exemple__label', style: { color: 'var(--accent-light)' } }, 'Introduction'), h('div', { className: 'exemple__text' }, ex.reponse.intro)),
+          h('div', { className: 'exemple__section' }, h('div', { className: 'exemple__label', style: { color: 'var(--info)' } }, 'Developpement'), ex.reponse.developpement.map((d, j) => h('div', { key: j, className: 'exemple__text', style: { marginBottom: '0.3rem' } }, d))),
+          h('div', { className: 'exemple__section' }, h('div', { className: 'exemple__label', style: { color: 'var(--success)' } }, 'Conclusion'), h('div', { className: 'exemple__text' }, ex.reponse.conclusion)),
+          h('div', { className: 'exemple__section' }, h('div', { className: 'exemple__label', style: { color: 'var(--warning)' } }, 'Ouverture'), h('div', { className: 'exemple__text' }, ex.reponse.ouverture))
+        )
+      )
+    );
+  };
+
+  const renderActualites = () => {
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '📰 Actualites 2025-2026'),
+      h('p', { style: { color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1rem' } }, 'Les sujets marques PROBABLE ont de fortes chances de tomber.'),
+      h('div', { className: 'actu-grid' },
+        DATA.actualites.map((a, i) =>
+          h('div', { key: i, className: 'actu-card' + (a.hot ? ' actu-card--hot' : '') },
+            h('div', { className: 'actu-card__theme' }, a.theme),
+            h('div', { className: 'actu-card__title' }, a.titre),
+            h('div', { className: 'actu-card__desc' }, a.desc)
+          )
+        )
+      )
+    );
+  };
+
+  const renderJourJ = () => {
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '🎯 Guide Jour J'),
+      h('h3', { style: { fontSize: '1rem', marginBottom: '1rem', color: 'var(--accent-light)' } }, 'Avant le jour J'),
+      h('div', { className: 'timeline' }, DATA.jourJ.avant.map((item, i) => h('div', { key: i, className: 'timeline__item' }, h('div', { className: 'timeline__time' }, item.time), h('div', { className: 'timeline__text' }, item.text)))),
+      h('h3', { style: { fontSize: '1rem', margin: '1.5rem 0 1rem', color: 'var(--success)' } }, 'Le matin'),
+      h('div', { className: 'timeline' }, DATA.jourJ.matin.map((item, i) => h('div', { key: i, className: 'timeline__item' }, h('div', { className: 'timeline__time' }, item.time), h('div', { className: 'timeline__text' }, item.text)))),
+      h('h3', { style: { fontSize: '1rem', margin: '1.5rem 0 1rem', color: 'var(--warning)' } }, 'Pendant l\'epreuve'),
+      h('div', { className: 'timeline' }, DATA.jourJ.pendant.map((item, i) => h('div', { key: i, className: 'timeline__item' }, h('div', { className: 'timeline__time' }, item.time), h('div', { className: 'timeline__text' }, item.text)))),
+      h('h3', { style: { fontSize: '1rem', margin: '1.5rem 0 1rem', color: 'var(--danger)' } }, '⚠️ Pieges classiques'),
+      h('div', { style: { display: 'flex', flexDirection: 'column', gap: '0.5rem' } },
+        DATA.jourJ.pieges.map((p, i) => h('div', { key: i, className: 'card card--danger', style: { fontSize: '0.85rem', color: 'var(--text-secondary)', padding: '0.8rem 1rem' } }, p))
+      )
+    );
+  };
+
+  const renderAutoEval = () => {
+    return h('div', { className: 'eval-grid' },
+      DATA.autoEvaluation.map((cat, i) =>
+        h('div', { key: i, className: 'eval-cat' },
+          h('div', { className: 'eval-cat__title' }, cat.cat),
+          cat.items.map((item, j) => {
+            const key = cat.cat + '-' + j;
+            return h('div', { key: j, className: 'eval-item', onClick: () => setEvalChecks(c => ({...c, [key]: !c[key]})) },
+              h('div', { className: 'eval-check' + (evalChecks[key] ? ' eval-check--done' : '') }, evalChecks[key] ? '✓' : ''),
+              item
+            );
+          })
+        )
+      )
+    );
+  };
+
+  const renderPractice = () => {
+    if (!practiceMode) {
+      return h('div', { className: 'slide-up' },
+        h('h2', { className: 'section-title' }, '🏋️ Entrainement chronometre'),
+        h('p', { style: { color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.5rem' } }, 'Simule les conditions reelles : une question aleatoire + un chronometre de 10 minutes.'),
+        h('div', { className: 'btn-group' },
+          h('button', { className: 'btn btn--primary', onClick: () => startPractice('rpc') }, 'Entrainement RPC'),
+          h('button', { className: 'btn btn--primary', style: { background: 'var(--warning)', color: '#000' }, onClick: () => startPractice('ared') }, 'Entrainement ARED'),
+          h('button', { className: 'btn btn--primary', style: { background: '#f472b6' }, onClick: () => startPractice('motivation') }, 'Entrainement Motivation')
+        )
+      );
+    }
+
+    const timerClass = timer >= 600 ? ' practice__timer--danger' : timer >= 480 ? ' practice__timer--warn' : '';
+
+    return h('div', { className: 'practice slide-up' },
+      h('div', { style: { fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: '0.5rem' } }, practiceType.toUpperCase() + ' — Entrainement'),
+      h('div', { className: 'practice__timer' + timerClass }, fmtTimer(timer)),
+      h('div', { className: 'practice__question' }, practiceQ.q),
+      h('div', { className: 'question__meta', style: { justifyContent: 'center', marginBottom: '1rem' } },
+        h('span', { className: 'question__tag' }, practiceQ.theme),
+        h('span', { className: 'question__diff question__diff--' + practiceQ.difficulte }, ['Facile','Moyen','Difficile'][practiceQ.difficulte-1])
+      ),
+      !showEval ? h('div', { className: 'btn-group' },
+        h('button', { className: 'btn btn--danger', onClick: stopPractice }, 'Terminer (voir eval)'),
+        h('button', { className: 'btn btn--ghost', onClick: exitPractice }, 'Quitter')
+      ) : h(Fragment, null,
+        h('h3', { style: { margin: '1rem 0', fontSize: '1rem' } }, 'Auto-evaluation — Comment ca s\'est passe ?'),
+        renderAutoEval(),
+        h('div', { className: 'btn-group', style: { marginTop: '1.5rem' } },
+          h('button', { className: 'btn btn--primary', onClick: nextPractice }, 'Question suivante'),
+          h('button', { className: 'btn btn--ghost', onClick: exitPractice }, 'Terminer')
+        )
+      )
+    );
+  };
+
+  // ===== JOURNAL VIEW =====
+  const renderJournal = () => {
+    const ratingLabels = { structure: 'Structure', contenu: 'Contenu', communication: 'Communication', timing: 'Timing', jury: 'Gestion jury' };
+    const confLabels = ['', 'Pas du tout', 'Un peu', 'Moyennement', 'Plutot', 'Tres confiant(e)'];
+    const confColors = ['', 'var(--danger)', 'var(--warning)', 'var(--info)', 'var(--success)', 'var(--success)'];
+
+    const sortedLog = [...dailyLog].sort((a, b) => b.timestamp - a.timestamp);
+
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '📓 Journal quotidien'),
+      h('p', { style: { color: 'var(--text-secondary)', fontSize: '0.85rem', marginBottom: '1.5rem' } }, 'Apres chaque session d\'entrainement, note ton ressenti. C\'est la cle de la progression !'),
+
+      // Form
+      h('div', { className: 'card card--accent', style: { marginBottom: '1.5rem' } },
+        h('h3', { style: { marginBottom: '1rem', fontSize: '1rem' } }, 'Nouvelle entree — ' + formatDate(today())),
+
+        h('div', { className: 'form-group' },
+          h('label', { className: 'form-label' }, 'Nombre de questions travaillees'),
+          h('div', { style: { display: 'flex', gap: '0.5rem', alignItems: 'center' } },
+            h('button', { className: 'btn btn--ghost btn--small', onClick: () => setJournalQCount(Math.max(1, journalQCount - 1)) }, '-'),
+            h('span', { style: { fontSize: '1.2rem', fontWeight: 700, minWidth: '2rem', textAlign: 'center' } }, journalQCount),
+            h('button', { className: 'btn btn--ghost btn--small', onClick: () => setJournalQCount(journalQCount + 1) }, '+')
+          )
+        ),
+
+        // Rating rows
+        Object.keys(ratingLabels).map(key =>
+          h('div', { key: key, className: 'rating-row' },
+            h('span', { className: 'rating-row__label' }, ratingLabels[key]),
+            h('div', { className: 'rating-stars' },
+              [1,2,3,4,5].map(n =>
+                h('button', {
+                  key: n,
+                  className: 'rating-star' + (journalRatings[key] >= n ? ' rating-star--active' : ''),
+                  onClick: () => setJournalRatings(r => ({...r, [key]: n}))
+                }, n)
+              )
+            )
+          )
+        ),
+
+        h('div', { className: 'rating-row', style: { marginTop: '0.5rem' } },
+          h('span', { className: 'rating-row__label' }, 'Confiance'),
+          h('div', { className: 'rating-stars' },
+            [1,2,3,4,5].map(n =>
+              h('button', {
+                key: n,
+                className: 'rating-star' + (journalConfidence >= n ? ' rating-star--active' : ''),
+                style: journalConfidence >= n ? { background: confColors[n], borderColor: confColors[n] } : {},
+                onClick: () => setJournalConfidence(n)
+              }, n)
+            )
+          ),
+          h('span', { style: { fontSize: '0.78rem', color: confColors[journalConfidence] } }, confLabels[journalConfidence])
+        ),
+
+        h('div', { className: 'form-group', style: { marginTop: '0.8rem' } },
+          h('label', { className: 'form-label' }, 'Notes / ressenti'),
+          h('textarea', { className: 'form-textarea', value: journalNotes, onChange: e => setJournalNotes(e.target.value), placeholder: 'Comment s\'est passee cette session ? Points forts, axes d\'amelioration...' })
+        ),
+
+        h('button', { className: 'btn btn--success', onClick: saveJournalEntry, style: { marginTop: '0.5rem' } }, 'Enregistrer la session')
+      ),
+
+      // History
+      h('h3', { style: { fontSize: '1rem', marginBottom: '1rem' } }, 'Historique (' + dailyLog.length + ' sessions)'),
+      sortedLog.length === 0
+        ? h('div', { className: 'empty-state' }, h('div', { className: 'empty-state__icon' }, '📝'), h('div', { className: 'empty-state__text' }, 'Aucune session enregistree. Fais un entrainement puis note ton ressenti !'))
+        : sortedLog.map((entry, i) =>
+            h('div', { key: i, className: 'journal-entry fade-in' },
+              h('div', { className: 'journal-entry__header' },
+                h('span', { className: 'journal-entry__date' }, formatDate(entry.date)),
+                h('span', { className: 'journal-entry__confidence confidence--' + entry.confidence }, confLabels[entry.confidence])
+              ),
+              h('div', { className: 'journal-entry__stats' },
+                h('span', { className: 'journal-entry__stat' }, h('strong', null, entry.questionsCount), ' questions')
+              ),
+              h('div', { className: 'journal-entry__ratings' },
+                Object.entries(entry.ratings).filter(([,v]) => v > 0).map(([k, v]) =>
+                  h('span', { key: k, className: 'journal-entry__rating' }, ratingLabels[k] + ' : ' + v + '/5')
+                )
+              ),
+              entry.notes ? h('div', { className: 'journal-entry__notes' }, entry.notes) : null
+            )
+          )
+    );
+  };
+
+  // ===== EVOLUTION VIEW =====
+  const renderEvolution = () => {
+    const last30 = [];
+    const d = new Date(); d.setDate(d.getDate() - 29);
+    for (let i = 0; i < 30; i++) {
+      const ds = d.toISOString().split('T')[0];
+      const entries = dailyLog.filter(e => e.date === ds);
+      const avgRating = entries.length > 0
+        ? entries.reduce((s, e) => { const vals = Object.values(e.ratings).filter(v => v > 0); return s + (vals.length > 0 ? vals.reduce((a,b)=>a+b,0)/vals.length : 0); }, 0) / entries.length
+        : 0;
+      const qCount = entries.reduce((s, e) => s + e.questionsCount, 0);
+      last30.push({ date: ds, label: ds.slice(8), avgRating, qCount, entries: entries.length });
+      d.setDate(d.getDate() + 1);
+    }
+
+    // SVG Line Chart - Average ratings over 30 days
+    const maxR = 5;
+    const chartW = 560, chartH = 180, padL = 30, padR = 10, padT = 10, padB = 25;
+    const plotW = chartW - padL - padR, plotH = chartH - padT - padB;
+    const points = last30.map((d, i) => ({
+      x: padL + (i / 29) * plotW,
+      y: padT + plotH - (d.avgRating / maxR) * plotH,
+      val: d.avgRating
+    })).filter(p => p.val > 0);
+
+    const linePath = points.length > 1 ? points.map((p, i) => (i === 0 ? 'M' : 'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ') : '';
+
+    // Radar chart data - average per category
+    const cats = ['structure', 'contenu', 'communication', 'timing', 'jury'];
+    const catLabels = ['Structure', 'Contenu', 'Comm.', 'Timing', 'Jury'];
+    const catAvgs = cats.map(c => {
+      const vals = dailyLog.filter(e => e.ratings[c] > 0).map(e => e.ratings[c]);
+      return vals.length > 0 ? vals.reduce((a,b)=>a+b,0)/vals.length : 0;
+    });
+    const radarR = 70, radarCx = 90, radarCy = 90;
+    const radarPoints = catAvgs.map((v, i) => {
+      const angle = (Math.PI * 2 * i / 5) - Math.PI / 2;
+      return { x: radarCx + Math.cos(angle) * (v / 5) * radarR, y: radarCy + Math.sin(angle) * (v / 5) * radarR };
+    });
+    const radarPath = radarPoints.map((p, i) => (i === 0 ? 'M' : 'L') + p.x.toFixed(1) + ',' + p.y.toFixed(1)).join(' ') + 'Z';
+
+    // Calendar heatmap - last 60 days
+    const heatDays = [];
+    const hd = new Date(); hd.setDate(hd.getDate() - 59);
+    for (let i = 0; i < 60; i++) {
+      const ds = hd.toISOString().split('T')[0];
+      const count = dailyLog.filter(e => e.date === ds).length;
+      heatDays.push({ date: ds, level: count === 0 ? 0 : count === 1 ? 1 : count === 2 ? 2 : count >= 3 ? 3 : 4 });
+      hd.setDate(hd.getDate() + 1);
+    }
+
+    // Confidence trend
+    const confTrend = dailyLog.slice(-10).map(e => e.confidence);
+
+    // Weak areas
+    const weakAreas = cats.map((c, i) => ({ cat: catLabels[i], avg: catAvgs[i] })).filter(a => a.avg > 0).sort((a, b) => a.avg - b.avg);
+
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '📈 Evolution & Progression'),
+
+      dailyLog.length === 0
+        ? h('div', { className: 'empty-state' }, h('div', { className: 'empty-state__icon' }, '📊'), h('div', { className: 'empty-state__text' }, 'Commence a remplir le journal quotidien pour voir ta progression ici !'))
+        : h(Fragment, null,
+
+          // Top stats
+          h('div', { className: 'stats-bar' },
+            h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--warning)' } }, streak.current), h('div', { className: 'stat-card__label' }, 'Streak actuel')),
+            h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--accent-light)' } }, streak.best), h('div', { className: 'stat-card__label' }, 'Record streak')),
+            h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--success)' } }, dailyLog.length), h('div', { className: 'stat-card__label' }, 'Sessions totales')),
+            h('div', { className: 'stat-card' }, h('div', { className: 'stat-card__value', style: { color: 'var(--info)' } }, dailyLog.reduce((s,e) => s + e.questionsCount, 0)), h('div', { className: 'stat-card__label' }, 'Questions totales'))
+          ),
+
+          h('div', { className: 'evo-grid' },
+
+            // Line chart
+            h('div', { className: 'evo-card' },
+              h('div', { className: 'evo-card__title' }, '📉 Note moyenne / 30 derniers jours'),
+              h('div', { className: 'chart-container' },
+                h('svg', { viewBox: '0 0 ' + chartW + ' ' + chartH, preserveAspectRatio: 'xMidYMid meet' },
+                  // Grid lines
+                  [1,2,3,4,5].map(v => h('line', { key: v, x1: padL, y1: padT + plotH - (v/5)*plotH, x2: padL + plotW, y2: padT + plotH - (v/5)*plotH, stroke: 'rgba(255,255,255,0.06)', strokeWidth: 1 })),
+                  [1,2,3,4,5].map(v => h('text', { key: 't'+v, x: padL - 5, y: padT + plotH - (v/5)*plotH + 4, fill: 'rgba(255,255,255,0.3)', fontSize: 10, textAnchor: 'end' }, v)),
+                  // X labels
+                  last30.filter((_, i) => i % 5 === 0).map((d, i) => h('text', { key: 'x'+i, x: padL + ((i*5)/29)*plotW, y: chartH - 5, fill: 'rgba(255,255,255,0.3)', fontSize: 9, textAnchor: 'middle' }, d.label)),
+                  // Line
+                  linePath ? h('path', { d: linePath, fill: 'none', stroke: '#7c6df0', strokeWidth: 2.5, strokeLinecap: 'round', strokeLinejoin: 'round' }) : null,
+                  // Dots
+                  points.map((p, i) => h('circle', { key: i, cx: p.x, cy: p.y, r: 3.5, fill: '#7c6df0', stroke: '#0a0a0f', strokeWidth: 1.5 }))
+                )
+              )
+            ),
+
+            // Radar chart
+            h('div', { className: 'evo-card' },
+              h('div', { className: 'evo-card__title' }, '🕸️ Profil de competences'),
+              h('div', { className: 'chart-container' },
+                h('svg', { viewBox: '0 0 180 180', preserveAspectRatio: 'xMidYMid meet' },
+                  // Grid pentagons
+                  [0.2, 0.4, 0.6, 0.8, 1].map((s, si) => {
+                    const pts = Array.from({length: 5}, (_, i) => {
+                      const a = (Math.PI * 2 * i / 5) - Math.PI / 2;
+                      return (radarCx + Math.cos(a) * s * radarR).toFixed(1) + ',' + (radarCy + Math.sin(a) * s * radarR).toFixed(1);
+                    }).join(' ');
+                    return h('polygon', { key: si, points: pts, fill: 'none', stroke: 'rgba(255,255,255,0.08)', strokeWidth: 1 });
+                  }),
+                  // Labels
+                  catLabels.map((label, i) => {
+                    const a = (Math.PI * 2 * i / 5) - Math.PI / 2;
+                    const lx = radarCx + Math.cos(a) * (radarR + 15);
+                    const ly = radarCy + Math.sin(a) * (radarR + 15);
+                    return h('text', { key: i, x: lx, y: ly + 3, fill: 'rgba(255,255,255,0.5)', fontSize: 9, textAnchor: 'middle' }, label);
+                  }),
+                  // Data polygon
+                  catAvgs.some(v => v > 0) ? h('polygon', { points: radarPoints.map(p => p.x.toFixed(1)+','+p.y.toFixed(1)).join(' '), fill: 'rgba(124,109,240,0.2)', stroke: '#7c6df0', strokeWidth: 2 }) : null,
+                  // Data dots
+                  radarPoints.map((p, i) => catAvgs[i] > 0 ? h('circle', { key: i, cx: p.x, cy: p.y, r: 3, fill: '#7c6df0' }) : null)
+                )
+              )
+            ),
+
+            // Calendar heatmap
+            h('div', { className: 'evo-card' },
+              h('div', { className: 'evo-card__title' }, '📅 Activite (60 derniers jours)'),
+              h('div', { className: 'heatmap' },
+                heatDays.map((d, i) => h('div', { key: i, className: 'heatmap__day heatmap__day--' + d.level, title: formatDate(d.date) + ' : ' + d.level + ' session(s)' }))
+              )
+            ),
+
+            // Weak areas
+            h('div', { className: 'evo-card' },
+              h('div', { className: 'evo-card__title' }, '🎯 Axes d\'amelioration'),
+              weakAreas.length === 0
+                ? h('div', { style: { fontSize: '0.82rem', color: 'var(--text-muted)' } }, 'Pas encore assez de donnees.')
+                : weakAreas.map((a, i) =>
+                    h('div', { key: i, style: { display: 'flex', alignItems: 'center', gap: '0.8rem', marginBottom: '0.6rem' } },
+                      h('span', { style: { fontSize: '0.82rem', minWidth: '90px', color: i === 0 ? 'var(--danger)' : 'var(--text-secondary)' } }, a.cat),
+                      h('div', { style: { flex: 1, height: '6px', background: 'var(--bg-elevated)', borderRadius: '3px', overflow: 'hidden' } },
+                        h('div', { style: { height: '100%', width: (a.avg / 5 * 100) + '%', background: i === 0 ? 'var(--danger)' : i === 1 ? 'var(--warning)' : 'var(--gradient-3)', borderRadius: '3px', transition: 'width 0.5s' } })
+                      ),
+                      h('span', { style: { fontSize: '0.78rem', color: 'var(--text-muted)', minWidth: '35px', textAlign: 'right' } }, a.avg.toFixed(1) + '/5')
+                    )
+                  )
+            ),
+
+            // Confidence trend
+            confTrend.length > 0 ? h('div', { className: 'evo-card' },
+              h('div', { className: 'evo-card__title' }, '💪 Confiance (10 dernieres sessions)'),
+              h('div', { style: { display: 'flex', gap: '4px', alignItems: 'flex-end', height: '80px' } },
+                confTrend.map((c, i) =>
+                  h('div', { key: i, style: { flex: 1, height: (c / 5 * 100) + '%', background: c >= 4 ? 'var(--success)' : c >= 3 ? 'var(--info)' : c >= 2 ? 'var(--warning)' : 'var(--danger)', borderRadius: '3px 3px 0 0', minHeight: '4px', transition: 'height 0.3s' } })
+                )
+              ),
+              h('div', { style: { display: 'flex', gap: '4px', marginTop: '4px' } },
+                confTrend.map((c, i) => h('div', { key: i, style: { flex: 1, textAlign: 'center', fontSize: '0.65rem', color: 'var(--text-muted)' } }, c))
+              )
+            ) : null
+          )
+        )
+    );
+  };
+
+  // ===== PHRASES-CLES TOOLKIT =====
+  const renderPhrases = () => {
+    const categories = Object.keys(PHRASES_TOOLKIT);
+    const copyPhrase = (text) => {
+      navigator.clipboard.writeText(text).then(() => {
+        setCopiedPhrase(text);
+        setTimeout(() => setCopiedPhrase(null), 2000);
+      });
+    };
+    return h('div', { className: 'slide-up' },
+      h('h2', { className: 'section-title' }, '🗝️ Phrases-cles pour l\'oral'),
+      h('p', { style: { fontSize: '0.82rem', color: 'var(--text-muted)', marginBottom: '1rem' } }, 'Clique sur une phrase pour la copier. Utilise-les comme tremplins dans tes reponses — adapte-les a chaque situation.'),
+      h('div', { className: 'phrase-cat-tabs' },
+        categories.map(cat => h('button', {
+          key: cat,
+          className: 'phrase-cat-tab' + (phraseCat === cat ? ' phrase-cat-tab--active' : ''),
+          onClick: () => setPhraseCat(cat)
+        }, cat))
+      ),
+      h('div', { className: 'phrases-grid' },
+        (PHRASES_TOOLKIT[phraseCat] || []).map((phrase, i) =>
+          h('div', {
+            key: i,
+            className: 'phrase-item' + (copiedPhrase === phrase ? ' phrase-item--copied' : ''),
+            onClick: () => copyPhrase(phrase)
+          },
+            h('div', { className: 'phrase-item__text' }, phrase),
+            h('div', { className: 'phrase-item__copy' }, copiedPhrase === phrase ? '✓ Copie !' : 'Copier')
+          )
+        )
+      )
+    );
+  };
+
+  // ===== EXPORT / IMPORT =====
+  const exportData = useCallback(() => {
+    const data = {};
+    ['oral-pass-done', 'oral-pass-notes', 'oral-pass-responses', 'oral-pass-daily', 'oral-pass-streak', 'oral-pass-custom-questions'].forEach(key => {
+      const v = localStorage.getItem(key);
+      if (v) data[key] = JSON.parse(v);
+    });
+    const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'oral-medecine-backup-' + today() + '.json';
+    a.click();
+    URL.revokeObjectURL(url);
+  }, []);
+
+  const importData = useCallback(() => {
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = '.json';
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = (ev) => {
+        try {
+          const data = JSON.parse(ev.target.result);
+          Object.entries(data).forEach(([key, value]) => {
+            localStorage.setItem(key, JSON.stringify(value));
+          });
+          // Reload state from localStorage
+          if (data['oral-pass-done']) setStatus(typeof data['oral-pass-done'] === 'object' ? data['oral-pass-done'] : {});
+          if (data['oral-pass-notes']) setNotes(data['oral-pass-notes']);
+          if (data['oral-pass-responses']) setResponses(data['oral-pass-responses']);
+          if (data['oral-pass-daily']) setDailyLog(data['oral-pass-daily']);
+          if (data['oral-pass-streak']) setStreak(data['oral-pass-streak']);
+          if (data['oral-pass-custom-questions']) setCustomQuestions(data['oral-pass-custom-questions']);
+          alert('Donnees importees avec succes !');
+        } catch(err) {
+          alert('Erreur : fichier invalide.');
+        }
+      };
+      reader.readAsText(file);
+    };
+    input.click();
+  }, []);
+
+  // ===== SUIVI (Journal + Evolution merged) =====
+  const renderSuivi = () => {
+    return h('div', { className: 'slide-up' },
+      h('div', { style: { display: 'flex', gap: '0.5rem', marginBottom: '1.5rem' } },
+        h('button', { className: 'btn ' + (suiviTab === 'journal' ? 'btn--primary' : 'btn--ghost'), onClick: () => setSuiviTab('journal') }, '📓 Journal'),
+        h('button', { className: 'btn ' + (suiviTab === 'evolution' ? 'btn--primary' : 'btn--ghost'), onClick: () => setSuiviTab('evolution') }, '📈 Evolution')
+      ),
+      suiviTab === 'journal' ? renderJournal() : renderEvolution(),
+      h('div', { className: 'card', style: { marginTop: '1.5rem', borderLeft: '4px solid var(--info)' } },
+        h('h3', { style: { marginBottom: '0.5rem' } }, '💾 Sauvegarde des donnees'),
+        h('p', { style: { fontSize: '0.78rem', color: 'var(--text-muted)', marginBottom: '0.8rem' } }, 'Exporte tes donnees pour les sauvegarder ou les transferer sur un autre appareil.'),
+        h('div', { className: 'export-section' },
+          h('button', { className: 'export-btn export-btn--primary', onClick: exportData }, '📥 Exporter mes donnees'),
+          h('button', { className: 'export-btn', onClick: importData }, '📤 Importer une sauvegarde')
+        )
+      )
+    );
+  };
+
+  // ===== CHIFFRES CLES =====
+  const renderChiffres = () => {
+    const f = DATA.format;
+    const p = f.places;
+    const h2025 = f.historique_2024_25;
+    const r = h2025.reclassement;
+    const mkStat = (label, value, color) => h('div', { style: { textAlign: 'center', padding: '1rem', background: 'var(--bg-elevated)', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' } },
+      h('div', { style: { fontSize: '1.6rem', fontWeight: 800, color: color || 'var(--accent-light)' } }, value),
+      h('div', { style: { fontSize: '0.72rem', color: 'var(--text-muted)', marginTop: '0.3rem', textTransform: 'uppercase', letterSpacing: '0.03em' } }, label)
+    );
+    const mkRow = (label, value) => h('div', { style: { display: 'flex', justifyContent: 'space-between', padding: '0.5rem 0', borderBottom: '1px solid var(--border)', fontSize: '0.85rem' } },
+      h('span', { style: { color: 'var(--text-secondary)' } }, label),
+      h('span', { style: { fontWeight: 600, color: 'var(--text)' } }, value)
+    );
+    return h('div', { className: 'slide-up' },
+      // Dates importantes
+      h('div', { className: 'card', style: { borderLeft: '4px solid var(--danger)', marginBottom: '1.5rem' } },
+        h('h2', { className: 'section-title' }, '📅 Dates importantes'),
+        h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '0.8rem' } },
+          mkStat('Amphi de garnison', '28 Mai', 'var(--danger)'),
+          mkStat('Preparation oraux', '2-3 Juin', 'var(--warning)'),
+          mkStat('Epreuves orales', 'Apres ecrit', 'var(--accent)')
+        )
+      ),
+      // Places 2025-2026
+      h('div', { className: 'card', style: { marginBottom: '1.5rem' } },
+        h('h2', { className: 'section-title' }, '🎯 Places MMOPK 2025-2026'),
+        h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))', gap: '0.8rem', marginBottom: '1rem' } },
+          mkStat('Total', p.total_mmopk, 'var(--success)'),
+          mkStat('Via ecrit', p.attribuees_ecrit, 'var(--info)'),
+          mkStat('Via oral', p.attribuees_oral, 'var(--warning)')
+        ),
+        h('h3', { style: { fontSize: '0.9rem', color: 'var(--text-secondary)', marginBottom: '0.5rem', marginTop: '1rem' } }, 'Capacites par filiere'),
+        mkRow('Medecine', p.capacites.medecine),
+        mkRow('Pharmacie', p.capacites.pharmacie),
+        mkRow('Odontologie', p.capacites.odontologie),
+        mkRow('Maieutique', p.capacites.maieutique),
+        mkRow('Kinesitherapie EKP', p.capacites.kine_ekp),
+        mkRow('Kinesitherapie APHP', p.capacites.kine_aphp),
+        mkRow('Ergotherapie', p.capacites.ergotherapie)
+      ),
+      // Scoring
+      h('div', { className: 'card', style: { borderLeft: '4px solid var(--accent)', marginBottom: '1.5rem' } },
+        h('h2', { className: 'section-title' }, '📐 Formule de classement'),
+        h('div', { style: { background: 'var(--accent-bg)', padding: '1.2rem', borderRadius: 'var(--radius-sm)', marginBottom: '0.8rem', textAlign: 'center' } },
+          h('div', { style: { fontSize: '1.1rem', fontWeight: 700, color: 'var(--accent-light)' } }, 'Classement final = 2/3 Note ecrit + 1/3 Note oral'),
+          h('div', { style: { fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '0.4rem' } }, 'Oral minimum 50% pour etre admis en MMOPK')
+        ),
+        h('p', { style: { fontSize: '0.85rem', color: 'var(--text-secondary)' } }, 'Note ecrit = bloc sante S1 + S2 (60 ECTS). Le classement apres l\'ecrit determine la convocation aux oraux.')
+      ),
+      // Historique 2024-2025
+      h('div', { className: 'card', style: { borderLeft: '4px solid var(--success)', marginBottom: '1.5rem' } },
+        h('h2', { className: 'section-title' }, '📊 Historique 2024-2025 — L\'oral redistribue TOUT'),
+        h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '0.8rem', marginBottom: '1rem' } },
+          mkStat('Convoques', h2025.convoques, 'var(--text)'),
+          mkStat('Presents oraux', h2025.presents_oraux, 'var(--info)'),
+          mkStat('Refus garnison', h2025.refus, 'var(--danger)'),
+          mkStat('Absents', h2025.absents, 'var(--text-muted)')
+        ),
+        h('h3', { style: { fontSize: '0.9rem', color: 'var(--success)', marginBottom: '0.5rem', marginTop: '1rem' } }, '✅ Recus par filiere (2024-25)'),
+        mkRow('Medecine', h2025.recus.medecine),
+        mkRow('Pharmacie', h2025.recus.pharmacie),
+        mkRow('Odontologie', h2025.recus.odontologie),
+        mkRow('Maieutique', h2025.recus.maieutique),
+        mkRow('Kine APHP', h2025.recus.kine_aphp),
+        mkRow('Kine EKP', h2025.recus.kine_ekp)
+      ),
+      // Reclassement — le plus motivant
+      h('div', { className: 'card', style: { borderLeft: '4px solid var(--warning)', background: 'linear-gradient(135deg, rgba(251,191,36,0.05), rgba(74,222,128,0.05))' } },
+        h('h2', { className: 'section-title' }, '🔥 Reclassement par l\'oral — Pourquoi tout est encore possible'),
+        h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '0.8rem', marginBottom: '1rem' } },
+          mkStat('Reclasses', r.nb_reclasses + ' etudiants', 'var(--success)'),
+          mkStat('Declasses', r.nb_declasses + ' etudiants', 'var(--danger)')
+        ),
+        h('div', { className: 'card', style: { background: 'var(--success-bg)', border: '1px solid rgba(74,222,128,0.3)', marginBottom: '0.8rem' } },
+          h('div', { style: { fontSize: '0.82rem', fontWeight: 600, color: 'var(--success)', marginBottom: '0.3rem' } }, '🚀 Plus grand gain : ' + r.meilleur_gain),
+          h('div', { style: { fontSize: '0.78rem', color: 'var(--text-secondary)' } }, 'Un etudiant classe 311e a l\'ecrit est passe 124e grace a l\'oral !'),
+          h('div', { style: { fontSize: '0.78rem', color: 'var(--text-secondary)', marginTop: '0.3rem' } }, 'Plus grand bond parmi les reclasses : ' + r.plus_grand_gain_reclasse)
+        ),
+        h('div', { className: 'card', style: { background: 'var(--danger-bg)', border: '1px solid rgba(248,113,113,0.3)' } },
+          h('div', { style: { fontSize: '0.82rem', fontWeight: 600, color: 'var(--danger)', marginBottom: '0.3rem' } }, '⚠️ Plus grande perte : ' + r.pire_perte),
+          h('div', { style: { fontSize: '0.78rem', color: 'var(--text-secondary)' } }, 'Meme bien classe a l\'ecrit, un mauvais oral peut tout renverser.')
+        ),
+        h('div', { style: { marginTop: '1rem', padding: '1rem', background: 'var(--bg-elevated)', borderRadius: 'var(--radius-sm)', textAlign: 'center' } },
+          h('div', { style: { fontSize: '0.9rem', fontWeight: 700, color: 'var(--warning)' } }, '💡 Message cle : L\'oral est une SECONDE CHANCE'),
+          h('div', { style: { fontSize: '0.82rem', color: 'var(--text-secondary)', marginTop: '0.3rem' } }, 'Peu importe ton classement ecrit, une bonne preparation a l\'oral peut te faire gagner plus de 180 places. Chaque minute de preparation compte !')
+        )
+      ),
+      // Consignes garnison
+      h('div', { className: 'card', style: { borderLeft: '4px solid var(--info)', marginTop: '1.5rem' } },
+        h('h2', { className: 'section-title' }, '🏛️ Consignes Amphi de Garnison'),
+        h('ul', { style: { listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '0.5rem' } },
+          f.consignes_garnison.map((c, i) => h('li', { key: i, style: { fontSize: '0.85rem', display: 'flex', alignItems: 'flex-start', gap: '0.5rem' } },
+            h('span', { style: { color: 'var(--info)', flexShrink: 0, marginTop: '0.1rem' } }, '•'),
+            c
+          ))
+        )
+      )
+    );
+  };
+
+  // ===== MAIN RENDER =====
+  const renderContent = () => {
+    if (practiceMode) return renderPractice();
+    switch(view) {
+      case 'accueil': return renderAccueil();
+      case 'rpc': return renderQuestionList('rpc');
+      case 'ared': return renderQuestionList('ared');
+      case 'motivation': return renderQuestionList('motivation');
+      case 'methodo': return renderMethodo();
+      case 'fiches': return renderFiches();
+      case 'exemples': return renderExemples();
+      case 'actualites': return renderActualites();
+      case 'chiffres': return renderChiffres();
+      case 'phrases': return renderPhrases();
+      case 'jourj': return renderJourJ();
+      case 'suivi': return renderSuivi();
+      case 'pratique': return renderPractice();
+      default: return renderAccueil();
+    }
+  };
+
+  return h('div', null,
+    h('header', { className: 'header' },
+      h('div', { className: 'header__badge' }, 'PASS SORBONNE UNIVERSITE 2026'),
+      h('h1', { className: 'header__title' }, 'Preparation Oral Medecine'),
+      h('p', { className: 'header__subtitle' }, totalQ + ' questions · Fiches thematiques · 7 exemples corriges · 13 actualites · Suivi & progression · Entrainement + auto-eval')
+    ),
+    renderStreakBanner(),
+    renderNav(),
+    renderContent()
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(h(App));
+</script>
+</body>
+</html>
